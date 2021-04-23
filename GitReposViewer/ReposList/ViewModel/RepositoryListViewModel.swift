@@ -12,6 +12,7 @@ class RepositoryViewModel {
     //MARK:- Properties
     let webService: WebServiceProtocol
     private var allReposList: [RepositoryModel] = []
+    private var allReposCreationDate: [String] = []
     var selectedGitRepo: RepositoryModel?
     private var repoListCellViewModels: [RepoListCellViewModel] = [RepoListCellViewModel]() {
         didSet {
@@ -54,7 +55,9 @@ class RepositoryViewModel {
             self.getPublicReposOnly(reposList: RepoList)
         }
     }
-    //MARK:- RepositoryList Filteration
+}
+//MARK:- Repo Filteration
+extension RepositoryViewModel {
     //Step 1: Ensure that each repository is public and not private
     func getPublicReposOnly(reposList: [RepositoryModel]){
         var publicRepositoryList: [RepositoryModel] = []
@@ -64,30 +67,38 @@ class RepositoryViewModel {
             }
         }
         self.allReposList = publicRepositoryList
-        publicRepositoryList.forEach { (repository) in
+    }
+    //Step 2: Loop over each repo
+    func getEachRepoInfo() {
+        self.allReposList.forEach { (repository) in
             getRepoCreationDate(repository: repository)
         }
     }
     
-    //Step 2: Get each repo's Creation date
+    //Step 3: Get each repo's Creation date
     func getRepoCreationDate(repository: RepositoryModel) {
         webService.getRequest(url: WebRouter.getCreationDate(repository.owner.login, repository.name).url, responseType: RepositoryDetailsModel.self) { [weak self] (date, error) in
             guard let self = self else { return }
-            guard let date = date else {
+            guard let date = date, let dateString = date.createdAt.toDate()  else {
                 self.state = .error
                 self.errorMessage = error?.localizedDescription
                 return
             }
-            if let dateString = date.createdAt.toDate() {
-                print(dateString.toString())
-            }
+            self.allReposCreationDate.append(dateString.toString())
         }
     }
-    //Step 3: 
-}
-//MARK:- Repo Filteration
-extension RepositoryViewModel {
-    
+    //Step 4: Generate cell View model
+    func generateCellViewModel(repository: RepositoryModel, date: String) -> RepoListCellViewModel {
+        return RepoListCellViewModel(repositoryName: repository.name, ownerAvatar: repository.owner.avatarURL, ownerName: repository.owner.login, creationDate: date)
+    }
+    //Step 5: Generate cell View model array
+    func generateCellViewModelList() {
+        var repoCellViewModelList: [RepoListCellViewModel] = []
+        for (index, repository) in allReposList.enumerated() {
+            repoCellViewModelList.append(generateCellViewModel(repository: repository, date: allReposCreationDate[index]))
+        }
+        self.repoListCellViewModels = repoCellViewModelList
+    }
 }
 
 //MARK:- Search
