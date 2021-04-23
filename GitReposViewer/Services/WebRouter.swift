@@ -12,12 +12,15 @@ enum WebRouter {
     private static let baseURL = "https://api.github.com/"
     //MARK:- Endpoints
     case getRepos
+    case getCreationDate(String, String)
     
     // Concatenate base url with endpoints
     private var path: String {
         switch self {
         case .getRepos:
-            return WebRouter.baseURL + "repositories"
+            return "\(WebRouter.baseURL)repositories"
+        case .getCreationDate(let owner, let repositoryName):
+            return WebRouter.baseURL + "\(owner)/\(repositoryName)"
         }
     }
     // Convert url string to URL
