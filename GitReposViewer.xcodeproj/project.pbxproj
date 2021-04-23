@@ -99,13 +99,11 @@
 		2BA167B0263294400077AC76 /* GitReposViewer */ = {
 			isa = PBXGroup;
 			children = (
-				2BA167B1263294400077AC76 /* AppDelegate.swift */,
-				2BA167B3263294400077AC76 /* SceneDelegate.swift */,
-				2BA167B5263294400077AC76 /* ViewController.swift */,
-				2BA167B7263294400077AC76 /* Main.storyboard */,
-				2BA167BA263294420077AC76 /* Assets.xcassets */,
-				2BA167BC263294420077AC76 /* LaunchScreen.storyboard */,
-				2BA167BF263294420077AC76 /* Info.plist */,
+				2BA167F32632975A0077AC76 /* Services */,
+				2BA167EE263296260077AC76 /* Core Delegates */,
+				2BA167F02632970E0077AC76 /* ReposList */,
+				2BA167F4263297630077AC76 /* RepoDetails */,
+				2BA167E7263295830077AC76 /* Resources */,
 			);
 			path = GitReposViewer;
 			sourceTree = "<group>";
@@ -126,6 +124,72 @@
 				2BA167D5263294430077AC76 /* Info.plist */,
 			);
 			path = GitReposViewerUITests;
+			sourceTree = "<group>";
+		};
+		2BA167E7263295830077AC76 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2BA167BA263294420077AC76 /* Assets.xcassets */,
+				2BA167BC263294420077AC76 /* LaunchScreen.storyboard */,
+				2BA167BF263294420077AC76 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2BA167EE263296260077AC76 /* Core Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				2BA167B1263294400077AC76 /* AppDelegate.swift */,
+				2BA167B3263294400077AC76 /* SceneDelegate.swift */,
+			);
+			path = "Core Delegates";
+			sourceTree = "<group>";
+		};
+		2BA167EF263296FF0077AC76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2BA167B5263294400077AC76 /* ViewController.swift */,
+				2BA167B7263294400077AC76 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BA167F02632970E0077AC76 /* ReposList */ = {
+			isa = PBXGroup;
+			children = (
+				2BA167F2263297480077AC76 /* Model */,
+				2BA167F1263297230077AC76 /* ViewModel */,
+				2BA167EF263296FF0077AC76 /* View */,
+			);
+			path = ReposList;
+			sourceTree = "<group>";
+		};
+		2BA167F1263297230077AC76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BA167F2263297480077AC76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2BA167F32632975A0077AC76 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2BA167F4263297630077AC76 /* RepoDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RepoDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,7 +501,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GitReposViewer/Info.plist;
+				INFOPLIST_FILE = GitReposViewer/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,7 +519,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GitReposViewer/Info.plist;
+				INFOPLIST_FILE = GitReposViewer/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
