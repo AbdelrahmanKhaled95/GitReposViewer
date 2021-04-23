@@ -35,21 +35,41 @@ class RepositoryViewModel {
                 publicRepositoryList.append(repository)
             }
         }
-        getRepoCreationDate(publicReposList: publicRepositoryList)
+        self.allReposList = publicRepositoryList
+        publicRepositoryList.forEach { (repository) in
+            getRepoCreationDate(repository: repository)
+            getOwnerAvatar(avatar: repository.owner.avatarURL)
+        }
     }
     
-    //Step2: Get each repo's Creation date
-    func getRepoCreationDate(publicReposList repositories: [RepositoryModel]) {
-        repositories.forEach { (repository) in
-            webService.getRequest(url: WebRouter.getCreationDate(repository.owner.login, repository.name).url, responseType: RepositoryDetailsModel.self) { (date, error) in
-                guard let date = date else {
-                    print(error?.localizedDescription)
-                    return
-                }
-                if let dateString = date.createdAt.toDate() {
-                    print(dateString.toString())
-                }
+    //Step 2: Get each repo's Creation date
+    func getRepoCreationDate(repository: RepositoryModel) {
+        webService.getRequest(url: WebRouter.getCreationDate(repository.owner.login, repository.name).url, responseType: RepositoryDetailsModel.self) { (date, error) in
+            guard let date = date else {
+                print(error?.localizedDescription)
+                return
+            }
+            if let dateString = date.createdAt.toDate() {
+                print(dateString.toString())
             }
         }
+    }
+    // Step 3: Get Owner's Avatar
+    func getOwnerAvatar(avatar imageURLString: String) {
+        webService.loadImages(urlString: imageURLString) { (image, error) in
+            print(image)
+        }
+    }
+}
+//MARK:- Search
+extension RepositoryViewModel {
+    func serachForRepo(searchValue: String) {
+        var searchRepoList: [RepositoryModel] = []
+        allReposList.forEach { (repository) in
+            if repository.name.contains(searchValue) {
+                searchRepoList.append(repository)
+            }
+        }
+        self.allReposList = searchRepoList
     }
 }
