@@ -15,6 +15,7 @@
 		2BA167BE263294420077AC76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA167BC263294420077AC76 /* LaunchScreen.storyboard */; };
 		2BA167C9263294430077AC76 /* GitReposViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA167C8263294430077AC76 /* GitReposViewerTests.swift */; };
 		2BA167D4263294430077AC76 /* GitReposViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA167D3263294430077AC76 /* GitReposViewerUITests.swift */; };
+		2BA1680926329B6B0077AC76 /* GenericTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1680826329B6B0077AC76 /* GenericTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		2BA167CF263294430077AC76 /* GitReposViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitReposViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA167D3263294430077AC76 /* GitReposViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitReposViewerUITests.swift; sourceTree = "<group>"; };
 		2BA167D5263294430077AC76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BA1680826329B6B0077AC76 /* GenericTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		2BA167FE26329B1C0077AC76 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				2BA1680826329B6B0077AC76 /* GenericTableView.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BA167B6263294400077AC76 /* ViewController.swift in Sources */,
+				2BA1680926329B6B0077AC76 /* GenericTableView.swift in Sources */,
 				2BA167B2263294400077AC76 /* AppDelegate.swift in Sources */,
 				2BA167B4263294400077AC76 /* SceneDelegate.swift in Sources */,
 			);
