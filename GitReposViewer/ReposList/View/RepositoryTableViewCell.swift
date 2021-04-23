@@ -15,6 +15,13 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var ownerName: UILabel!
     @IBOutlet weak var creationDate: UILabel!
     
+    override func prepareForReuse() {
+        repositoryName.text = ""
+        ownerName.text = ""
+        creationDate.text = ""
+        ownerAvatar.image = nil
+    }
+    
     var repoListCellViewModel : RepoListCellViewModel? {
         didSet {
             repositoryName.text = repoListCellViewModel?.repositoryName
