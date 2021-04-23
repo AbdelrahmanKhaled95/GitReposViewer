@@ -19,6 +19,7 @@ class RepoListViewController: BaseViewController {
     lazy var viewModel: RepositoryViewModel = {
         return RepositoryViewModel()
     }()
+    private var selectedRepository: RepoListCellViewModel?
     //MARK:- ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,4 +101,15 @@ extension RepoListViewController: UISearchBarDelegate {
         }
     }
 }
-
+//MARK:- Navigation
+extension RepoListViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let repositoryDetailsVC = segue.destination as? RepoDetailViewController,
+            let repository = selectedRepository {
+            repositoryDetailsVC.ownerAvatar = repository.ownerAvatar
+            repositoryDetailsVC.repositoryName = repository.repositoryName
+            repositoryDetailsVC.ownerName = repository.ownerName
+            repositoryDetailsVC.createionDate = repository.creationDate
+        }
+    }
+}
