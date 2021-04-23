@@ -10,7 +10,10 @@ import Foundation
 class WebSerice: WebServiceProtocol {
     
     func getRequest<ResponseType>(url: URL, responseType: ResponseType.Type, completionHandler: @escaping ([ResponseType]?, Error?) -> Void) where ResponseType : Decodable {
-        <#code#>
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+        }
+        task.resume()
     }
     
     
