@@ -10,7 +10,7 @@ import UIKit
 extension GenericTableView {
     func registerNib() {
         let nibName = "\(Cell.self)"
-        self.register(Cell.self, forCellReuseIdentifier: nibName)
+        self.register(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: nibName)
     }
     
     func dequeue() -> Cell {
