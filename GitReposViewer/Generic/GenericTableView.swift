@@ -22,7 +22,7 @@ class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDat
         self.translatesAutoresizingMaskIntoConstraints = false
         self.dataSource = self
         self.delegate = self
-        self.register(Cell.self, forCellReuseIdentifier: "Cell")
+        self.registerNib()
     }
     
     required init?(coder: NSCoder) {
@@ -33,7 +33,7 @@ class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDat
         return items.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
+        let cell = self.dequeue()
         config(items[indexPath.row], cell)
         return cell
     }
