@@ -10,9 +10,9 @@ import Foundation
 class RepositoryViewModel {
     
     let webService: WebServiceProtocol
-    var allReposList: [RepositoryModel] = []
+    private var allReposList: [RepositoryModel] = []
     
-    init(webService: WebServiceProtocol) {
+    init(webService: WebServiceProtocol = WebSerice()) {
         self.webService = webService
     }
     
