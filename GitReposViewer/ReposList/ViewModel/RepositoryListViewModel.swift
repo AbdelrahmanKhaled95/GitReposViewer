@@ -14,13 +14,10 @@ class RepositoryViewModel {
     private var allReposList: [RepositoryModel] = []
     private var allReposCreationDate: [String] = []
     var selectedGitRepo: RepositoryModel?
-    private var repoListCellViewModels: [RepoListCellViewModel] = [RepoListCellViewModel]() {
+    var repoListCellViewModels: [RepoListCellViewModel] = [RepoListCellViewModel]() {
         didSet {
             self.reloadTableView?()
         }
-    }
-    var numberOfCells: Int {
-        return repoListCellViewModels.count
     }
     
     init(webService: WebServiceProtocol = WebSerice()) {
@@ -55,6 +52,10 @@ class RepositoryViewModel {
             self.getPublicReposOnly(reposList: RepoList)
         }
     }
+    // Return current loaded cell
+    func getCellViewModel(at indexPath: IndexPath) -> RepoListCellViewModel {
+        return repoListCellViewModels[indexPath.row]
+    }
 }
 //MARK:- Repo Filteration
 extension RepositoryViewModel {
@@ -67,6 +68,7 @@ extension RepositoryViewModel {
             }
         }
         self.allReposList = publicRepositoryList
+        self.getEachRepoInfo()
     }
     //Step 2: Loop over each repo
     func getEachRepoInfo() {
@@ -85,6 +87,9 @@ extension RepositoryViewModel {
                 return
             }
             self.allReposCreationDate.append(dateString.toString())
+            if self.allReposCreationDate.count == self.allReposList.count {
+                self.generateCellViewModelList()
+            }
         }
     }
     //Step 4: Generate cell View model
