@@ -20,12 +20,12 @@ class WebSerice: WebServiceProtocol {
         sessionConfig.httpAdditionalHeaders = ["Authorization": authValue ?? ""]
         session = URLSession(configuration: sessionConfig, delegate: self as? URLSessionDelegate, delegateQueue: nil)
     }
-
+    
     
     //MARK:- Get Method
-    func getRequest<ResponseType>(url: URL, responseType: ResponseType.Type, completionHandler: @escaping (ResponseType?, Error?) -> Void) where ResponseType : Decodable {
+    func getRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completionHandler: @escaping (ResponseType?, Error?) -> Void) {
         let task = session.dataTask(with: url) { (data, response, error) in
-            guard let data = data else {
+            guard let data = data, error == nil else {
                 DispatchQueue.main.async {
                     completionHandler(nil, error)
                 }
@@ -48,7 +48,7 @@ class WebSerice: WebServiceProtocol {
     
     func getRequestArray<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completionHandler: @escaping ([ResponseType]?, Error?) -> Void) {
         let task = session.dataTask(with: url) { (data, response, error) in
-            guard let data = data else {
+            guard let data = data, error == nil else {
                 DispatchQueue.main.async {
                     completionHandler(nil, error)
                 }
@@ -67,5 +67,23 @@ class WebSerice: WebServiceProtocol {
             }
         }
         task.resume()
+    }
+    
+    //MARK:- load Images
+    func loadImages(urlString: String, completionHandler: @escaping (Data?, Error?) -> Void) {
+        if let url = URL(string: urlString) {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else {
+                    DispatchQueue.main.async {
+                        completionHandler(nil, error)
+                    }
+                    return
+                }
+                DispatchQueue.main.async { // execute on main thread
+                    completionHandler(data, nil)
+                }
+            }
+            task.resume()
+        }
     }
 }
