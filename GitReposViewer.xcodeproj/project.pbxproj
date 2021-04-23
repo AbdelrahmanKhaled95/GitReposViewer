@@ -99,6 +99,7 @@
 		2BA167B0263294400077AC76 /* GitReposViewer */ = {
 			isa = PBXGroup;
 			children = (
+				2BA167FE26329B1C0077AC76 /* Generic */,
 				2BA167F32632975A0077AC76 /* Services */,
 				2BA167EE263296260077AC76 /* Core Delegates */,
 				2BA167F02632970E0077AC76 /* ReposList */,
@@ -190,6 +191,13 @@
 			children = (
 			);
 			path = RepoDetails;
+			sourceTree = "<group>";
+		};
+		2BA167FE26329B1C0077AC76 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
