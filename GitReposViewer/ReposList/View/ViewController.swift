@@ -20,7 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tableViewContainer.addSubview(genericTableView)
+        
+       // tableViewContainer.addSubview(genericTableView)
         viewModel.fetchGitHubRepositories()
     }
 

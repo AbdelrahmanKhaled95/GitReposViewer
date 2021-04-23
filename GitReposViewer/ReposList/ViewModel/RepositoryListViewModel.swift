@@ -42,12 +42,14 @@ class RepositoryViewModel {
     func getRepoCreationDate(publicReposList repositories: [RepositoryModel]) {
         repositories.forEach { (repository) in
             webService.getRequest(url: WebRouter.getCreationDate(repository.owner.login, repository.name).url, responseType: RepositoryDetailsModel.self) { (date, error) in
-                let dateString = date?.createdAt.toDate()
-                
-                print(dateString?.toString())
+                guard let date = date else {
+                    print(error?.localizedDescription)
+                    return
+                }
+                if let dateString = date.createdAt.toDate() {
+                    print(dateString.toString())
+                }
             }
         }
-        
     }
-    
 }
