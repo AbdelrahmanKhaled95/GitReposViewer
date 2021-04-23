@@ -12,6 +12,7 @@ class RepoListViewController: BaseViewController {
     //MARK:- Outlets
     @IBOutlet weak var tableViewContainer: UIView!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     //MARK:-Properties
     var genericTableView: GenericTableView<RepoListCellViewModel, RepositoryTableViewCell>!
@@ -26,7 +27,7 @@ class RepoListViewController: BaseViewController {
         tableViewContainer.addSubview(genericTableView)
         setupBinding()
     }
-    
+    //MARK:- Setup binding
     func setupBinding() {
         viewModel.showAlert = { [weak self] () in
             guard let self = self else { return }
@@ -62,14 +63,12 @@ class RepoListViewController: BaseViewController {
                 }
             }
         }
-
         viewModel.reloadTableView = { [weak self] () in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.genericTableView.reloadTable(data: self.viewModel.repoListCellViewModels)
             }
         }
-        
         viewModel.initalFetchGitHubRepositories()
     }
     
@@ -77,14 +76,22 @@ class RepoListViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
 }
-
+//MARK:- Generic TableView closures
 extension RepoListViewController {
     func configRepoTable(item: RepoListCellViewModel, cell: RepositoryTableViewCell) {
         cell.repoListCellViewModel = item
     }
-    
     func selectHelper(item: RepoListCellViewModel) {
-        
+        print(item.repositoryName)
+    }
+}
+
+extension RepoListViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchValue = searchBar.text {
+            viewModel.serachForRepo(searchValue: searchValue)
+        }
     }
 }
 
