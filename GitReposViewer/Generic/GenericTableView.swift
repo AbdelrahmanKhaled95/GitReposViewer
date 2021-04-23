@@ -43,3 +43,11 @@ class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDat
         selectHandler(items[indexPath.row])
     }
 }
+
+//MARK:- Reload Table
+extension GenericTableView {
+    func reloadTable(data items: [Item]) {
+        self.items = items
+        self.reloadData()
+    }
+}
