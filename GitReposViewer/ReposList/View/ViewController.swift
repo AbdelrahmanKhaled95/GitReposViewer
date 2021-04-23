@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    //MARK:-Properties
     var genericTableView: GenericTableView<String, UITableViewCell>!
     var data = [String]()
     
@@ -20,7 +21,6 @@ class ViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (_) in
             self.data = Array(repeating: "Abdo", count: 10)
             self.genericTableView.reloadTable(data: self.data)
-            
         }
         genericTableView = GenericTableView(frame: tableViewContainer.bounds, items: data, config: { (item, cell) in
             cell.textLabel?.text = item
