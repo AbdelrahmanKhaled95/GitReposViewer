@@ -15,6 +15,11 @@
 		2B0E853B26335E5D003CC340 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E853926335E5D003CC340 /* RepositoryTableViewCell.swift */; };
 		2B0E853C26335E5D003CC340 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0E853A26335E5D003CC340 /* RepositoryTableViewCell.xib */; };
 		2B0E854F26336235003CC340 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E854E26336235003CC340 /* ViewState.swift */; };
+		2B0E855426338CD1003CC340 /* RepoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E855326338CD1003CC340 /* RepoDetailViewController.swift */; };
+		2B0E855E26338FBC003CC340 /* RepoListVC+GenericTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E855D26338FBC003CC340 /* RepoListVC+GenericTableViewExtension.swift */; };
+		2B0E8570263390AE003CC340 /* RepoListVC+UISearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E856F263390AE003CC340 /* RepoListVC+UISearchBarExtension.swift */; };
+		2B0E8578263390F0003CC340 /* RepoListVC+NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E8577263390F0003CC340 /* RepoListVC+NavigationExtension.swift */; };
+		2B0E858326339135003CC340 /* RepoListVC+BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E858226339135003CC340 /* RepoListVC+BindingExtension.swift */; };
 		2B6FE25D2632D98D00E3C00F /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE25C2632D98D00E3C00F /* RepositoryModel.swift */; };
 		2B6FE2652632DC5C00E3C00F /* RepositoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE2642632DC5B00E3C00F /* RepositoryListViewModel.swift */; };
 		2B6FE2862632F6A400E3C00F /* RepositoryDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE2852632F6A400E3C00F /* RepositoryDetailsModel.swift */; };
@@ -63,6 +68,11 @@
 		2B0E853926335E5D003CC340 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		2B0E853A26335E5D003CC340 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		2B0E854E26336235003CC340 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		2B0E855326338CD1003CC340 /* RepoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewController.swift; sourceTree = "<group>"; };
+		2B0E855D26338FBC003CC340 /* RepoListVC+GenericTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoListVC+GenericTableViewExtension.swift"; sourceTree = "<group>"; };
+		2B0E856F263390AE003CC340 /* RepoListVC+UISearchBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoListVC+UISearchBarExtension.swift"; sourceTree = "<group>"; };
+		2B0E8577263390F0003CC340 /* RepoListVC+NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoListVC+NavigationExtension.swift"; sourceTree = "<group>"; };
+		2B0E858226339135003CC340 /* RepoListVC+BindingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoListVC+BindingExtension.swift"; sourceTree = "<group>"; };
 		2B6FE25C2632D98D00E3C00F /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		2B6FE2642632DC5B00E3C00F /* RepositoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModel.swift; sourceTree = "<group>"; };
 		2B6FE2852632F6A400E3C00F /* RepositoryDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsModel.swift; sourceTree = "<group>"; };
@@ -127,6 +137,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0E855826338F44003CC340 /* RepositoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E853926335E5D003CC340 /* RepositoryTableViewCell.swift */,
+				2B0E853A26335E5D003CC340 /* RepositoryTableViewCell.xib */,
+			);
+			path = RepositoryCell;
+			sourceTree = "<group>";
+		};
+		2B0E855C26338F62003CC340 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E8522263356D1003CC340 /* RepoListViewController.swift */,
+				2B0E855D26338FBC003CC340 /* RepoListVC+GenericTableViewExtension.swift */,
+				2B0E856F263390AE003CC340 /* RepoListVC+UISearchBarExtension.swift */,
+				2B0E8577263390F0003CC340 /* RepoListVC+NavigationExtension.swift */,
+				2B0E858226339135003CC340 /* RepoListVC+BindingExtension.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		2B6FE2A1263321C300E3C00F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,10 +245,9 @@
 		2BA167EF263296FF0077AC76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2B0E855826338F44003CC340 /* RepositoryCell */,
 				2BA167B7263294400077AC76 /* Main.storyboard */,
-				2B0E853926335E5D003CC340 /* RepositoryTableViewCell.swift */,
-				2B0E853A26335E5D003CC340 /* RepositoryTableViewCell.xib */,
-				2B0E8522263356D1003CC340 /* RepoListViewController.swift */,
+				2B0E855C26338F62003CC340 /* ViewControllers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +297,7 @@
 		2BA167F4263297630077AC76 /* RepoDetails */ = {
 			isa = PBXGroup;
 			children = (
+				2B0E855326338CD1003CC340 /* RepoDetailViewController.swift */,
 			);
 			path = RepoDetails;
 			sourceTree = "<group>";
@@ -554,7 +585,9 @@
 				2B0E854F26336235003CC340 /* ViewState.swift in Sources */,
 				2B0E853B26335E5D003CC340 /* RepositoryTableViewCell.swift in Sources */,
 				2B0E852D26335C52003CC340 /* RepoListCellViewModel.swift in Sources */,
+				2B0E855426338CD1003CC340 /* RepoDetailViewController.swift in Sources */,
 				2BA168222632C75C0077AC76 /* WebServiceProtocol.swift in Sources */,
+				2B0E8578263390F0003CC340 /* RepoListVC+NavigationExtension.swift in Sources */,
 				2BA168362632C7E90077AC76 /* WebRouter.swift in Sources */,
 				2BA1680926329B6B0077AC76 /* GenericTableView.swift in Sources */,
 				2B6FE25D2632D98D00E3C00F /* RepositoryModel.swift in Sources */,
@@ -562,12 +595,15 @@
 				2B6FE28B2632F7A300E3C00F /* RepositoryOwnerModel.swift in Sources */,
 				2B0E8523263356D1003CC340 /* RepoListViewController.swift in Sources */,
 				2B6FE2652632DC5C00E3C00F /* RepositoryListViewModel.swift in Sources */,
+				2B0E858326339135003CC340 /* RepoListVC+BindingExtension.swift in Sources */,
 				2BA167B2263294400077AC76 /* AppDelegate.swift in Sources */,
 				2B6FE2A3263321D700E3C00F /* Date+Extension.swift in Sources */,
 				2BA167B4263294400077AC76 /* SceneDelegate.swift in Sources */,
 				2B6FE2AB2633239F00E3C00F /* String+Extension.swift in Sources */,
 				2B0E853226335D5E003CC340 /* UIImageView+Extension.swift in Sources */,
 				2B6FE2862632F6A400E3C00F /* RepositoryDetailsModel.swift in Sources */,
+				2B0E855E26338FBC003CC340 /* RepoListVC+GenericTableViewExtension.swift in Sources */,
+				2B0E8570263390AE003CC340 /* RepoListVC+UISearchBarExtension.swift in Sources */,
 				2BABFF8226334ADB0087DF02 /* GenericTableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

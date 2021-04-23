@@ -7,23 +7,18 @@
 
 import UIKit
 
-class RepoListVC_UISearchBarExtension: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+//MARK:- SearchBar Actions
+extension RepoListViewController: UISearchBarDelegate {
+    // Called when clicked on search key in keyboard
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchValue = searchBar.text {
+            viewModel.serachForRepo(searchValue: searchValue)
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // Called when clicked on clear button
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            viewModel.initalFetchGitHubRepositories()
+        }
     }
-    */
-
 }

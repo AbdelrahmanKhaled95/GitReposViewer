@@ -7,23 +7,15 @@
 
 import UIKit
 
-class RepoListVC_NavigationExtension: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//MARK:- Navigation
+extension RepoListViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let repositoryDetailsVC = segue.destination as? RepoDetailViewController,
+            let repository = selectedRepository {
+            repositoryDetailsVC.ownerAvatar = repository.ownerAvatar
+            repositoryDetailsVC.repositoryName = repository.repositoryName
+            repositoryDetailsVC.ownerName = repository.ownerName
+            repositoryDetailsVC.createionDate = repository.creationDate
+        }
     }
-    */
-
 }
