@@ -1,0 +1,6 @@
+framework module Pods_GitReposViewer {
+  umbrella header "Pods-GitReposViewer-umbrella.h"
+
+  export *
+  module * { export * }
+}
