@@ -17,11 +17,11 @@ class RepositoryViewModel {
     }
     
     func fetchGitHubRepositories() {
-        webService.getRequest(url: WebRouter.getRepos.url, responseType: RepositoryModel.self) { [weak self] (RepoList, error) in
+        webService.getRequestArray(url: WebRouter.getRepos.url, responseType: RepositoryModel.self) { [weak self] (result, error) in
             guard let self = self else { return }
-            print(RepoList)
-            if let RepoList = RepoList {
-                self.allReposList = RepoList
+            
+            if let RepoList = result {
+                self.getPublicReposOnly(reposList: RepoList)
             }
             
         }
@@ -35,7 +35,19 @@ class RepositoryViewModel {
                 publicRepositoryList.append(repository)
             }
         }
-        getCreationDate(publicReposList: publicRepositoryList)
+        getRepoCreationDate(publicReposList: publicRepositoryList)
     }
-
+    
+    //Step2: Get each repo's Creation date
+    func getRepoCreationDate(publicReposList repositories: [RepositoryModel]) {
+        repositories.forEach { (repository) in
+            webService.getRequest(url: WebRouter.getCreationDate(repository.owner.login, repository.name).url, responseType: RepositoryDetailsModel.self) { (date, error) in
+                let dateString = date?.createdAt.toDate()
+                
+                print(dateString?.toString())
+            }
+        }
+        
+    }
+    
 }
