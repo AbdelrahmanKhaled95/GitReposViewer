@@ -44,19 +44,19 @@ class RepoListViewController: BaseViewController {
                 switch self.viewModel.state {
                 case .empty, .error:
                     self.activitySpinner.stopAnimating()
-                    UIView.animate(withDuration: 0.3, animations: {
+                    UIView.animate(withDuration: 0.1, animations: {
                         self.genericTableView.alpha = 0.0
                         self.activitySpinner.isHidden = true
                     })
                 case .loading:
                     self.activitySpinner.startAnimating()
-                    UIView.animate(withDuration: 0.3, animations: {
+                    UIView.animate(withDuration: 0.1, animations: {
                         self.genericTableView.alpha = 0.0
                         self.activitySpinner.isHidden = false
                     })
                 case .filled:
                     self.activitySpinner.stopAnimating()
-                    UIView.animate(withDuration: 0.3, animations: {
+                    UIView.animate(withDuration: 0.1, animations: {
                         self.genericTableView.alpha = 1.0
                         self.activitySpinner.isHidden = true
                     })
@@ -85,12 +85,18 @@ extension RepoListViewController {
         print(item.repositoryName)
     }
 }
-
+//MARK:- SearchBar Actions
 extension RepoListViewController: UISearchBarDelegate {
-    
+    // Called when clicked on search key in keyboard
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchValue = searchBar.text {
             viewModel.serachForRepo(searchValue: searchValue)
+        }
+    }
+    // Called when clicked on clear button
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            viewModel.initalFetchGitHubRepositories()
         }
     }
 }
