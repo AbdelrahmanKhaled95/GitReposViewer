@@ -9,6 +9,7 @@ import Foundation
 
 class RepositoryViewModel {
     
+    //MARK:- Properties
     let webService: WebServiceProtocol
     private var allReposList: [RepositoryModel] = []
     var selectedGitRepo: RepositoryModel?
@@ -17,12 +18,15 @@ class RepositoryViewModel {
             self.reloadTableView?()
         }
     }
+    var numberOfCells: Int {
+        return repoListCellViewModels.count
+    }
     
     init(webService: WebServiceProtocol = WebSerice()) {
         self.webService = webService
     }
     
-    //MARK:- Outlet Closures
+    //MARK:- Binding Closures
     var reloadTableView: (()->())?
     var state: ViewState = .empty {
         didSet {
@@ -30,21 +34,24 @@ class RepositoryViewModel {
         }
     }
     var updateLoadingStatus: (()->())?
-    var alertMessage: String? {
+    var errorMessage: String? {
         didSet {
             self.showAlert?()
         }
     }
     var showAlert: (()->())?
     
-    func fetchGitHubRepositories() {
+    func initalFetchGitHubRepositories() {
+        state = .loading
         webService.getRequestArray(url: WebRouter.getRepos.url, responseType: RepositoryModel.self) { [weak self] (result, error) in
             guard let self = self else { return }
-            
-            if let RepoList = result {
-                self.getPublicReposOnly(reposList: RepoList)
+            guard let RepoList = result else {
+                self.state = .error
+                self.errorMessage = error?.localizedDescription
+                return
             }
-            
+            self.state = .filled
+            self.getPublicReposOnly(reposList: RepoList)
         }
     }
     //MARK:- RepositoryList Filteration
@@ -59,15 +66,16 @@ class RepositoryViewModel {
         self.allReposList = publicRepositoryList
         publicRepositoryList.forEach { (repository) in
             getRepoCreationDate(repository: repository)
-            getOwnerAvatar(avatar: repository.owner.avatarURL)
         }
     }
     
     //Step 2: Get each repo's Creation date
     func getRepoCreationDate(repository: RepositoryModel) {
-        webService.getRequest(url: WebRouter.getCreationDate(repository.owner.login, repository.name).url, responseType: RepositoryDetailsModel.self) { (date, error) in
+        webService.getRequest(url: WebRouter.getCreationDate(repository.owner.login, repository.name).url, responseType: RepositoryDetailsModel.self) { [weak self] (date, error) in
+            guard let self = self else { return }
             guard let date = date else {
-                print(error?.localizedDescription)
+                self.state = .error
+                self.errorMessage = error?.localizedDescription
                 return
             }
             if let dateString = date.createdAt.toDate() {
@@ -75,13 +83,13 @@ class RepositoryViewModel {
             }
         }
     }
-    // Step 3: Get Owner's Avatar
-    func getOwnerAvatar(avatar imageURLString: String) {
-        webService.loadImages(urlString: imageURLString) { (image, error) in
-            print(image)
-        }
-    }
+    //Step 3: 
 }
+//MARK:- Repo Filteration
+extension RepositoryViewModel {
+    
+}
+
 //MARK:- Search
 extension RepositoryViewModel {
     func serachForRepo(searchValue: String) {
