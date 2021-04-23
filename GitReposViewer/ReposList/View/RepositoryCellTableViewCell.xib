@@ -82,6 +82,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="CreationDate" destination="6kd-dM-hXV" id="Evi-YV-KXH"/>
+                <outlet property="OwnerAvatar" destination="RlX-y3-e8e" id="9tv-fb-Zqo"/>
+                <outlet property="OwnerName" destination="tcL-PY-raJ" id="xys-q3-maQ"/>
+                <outlet property="RepositoryName" destination="51f-fo-TkQ" id="AEq-fM-shK"/>
+            </connections>
             <point key="canvasLocation" x="-32.608695652173914" y="105.46875"/>
         </tableViewCell>
     </objects>

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2B6FE25D2632D98D00E3C00F /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE25C2632D98D00E3C00F /* RepositoryModel.swift */; };
 		2B6FE2652632DC5C00E3C00F /* RepositoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE2642632DC5B00E3C00F /* RepositoryListViewModel.swift */; };
+		2B6FE2802632E64800E3C00F /* RepositoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE27E2632E64800E3C00F /* RepositoryCellTableViewCell.swift */; };
+		2B6FE2812632E64800E3C00F /* RepositoryCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B6FE27F2632E64800E3C00F /* RepositoryCellTableViewCell.xib */; };
 		2BA167B2263294400077AC76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA167B1263294400077AC76 /* AppDelegate.swift */; };
 		2BA167B4263294400077AC76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA167B3263294400077AC76 /* SceneDelegate.swift */; };
 		2BA167B6263294400077AC76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA167B5263294400077AC76 /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		2B6FE25C2632D98D00E3C00F /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		2B6FE2642632DC5B00E3C00F /* RepositoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModel.swift; sourceTree = "<group>"; };
+		2B6FE27E2632E64800E3C00F /* RepositoryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellTableViewCell.swift; sourceTree = "<group>"; };
+		2B6FE27F2632E64800E3C00F /* RepositoryCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCellTableViewCell.xib; sourceTree = "<group>"; };
 		2BA167AE263294400077AC76 /* GitReposViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitReposViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA167B1263294400077AC76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BA167B3263294400077AC76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 			children = (
 				2BA167B5263294400077AC76 /* ViewController.swift */,
 				2BA167B7263294400077AC76 /* Main.storyboard */,
+				2B6FE27E2632E64800E3C00F /* RepositoryCellTableViewCell.swift */,
+				2B6FE27F2632E64800E3C00F /* RepositoryCellTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 				2BA167BE263294420077AC76 /* LaunchScreen.storyboard in Resources */,
 				2BA167BB263294420077AC76 /* Assets.xcassets in Resources */,
 				2BA167B9263294400077AC76 /* Main.storyboard in Resources */,
+				2B6FE2812632E64800E3C00F /* RepositoryCellTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +366,7 @@
 				2BA168312632C7D30077AC76 /* WebService.swift in Sources */,
 				2BA167B6263294400077AC76 /* ViewController.swift in Sources */,
 				2BA168222632C75C0077AC76 /* WebServiceProtocol.swift in Sources */,
+				2B6FE2802632E64800E3C00F /* RepositoryCellTableViewCell.swift in Sources */,
 				2BA168362632C7E90077AC76 /* WebRouter.swift in Sources */,
 				2BA1680926329B6B0077AC76 /* GenericTableView.swift in Sources */,
 				2B6FE25D2632D98D00E3C00F /* RepositoryModel.swift in Sources */,

@@ -8,16 +8,16 @@
 import UIKit
 
 class RepositoryCellTableViewCell: UITableViewCell {
-
+    
+    //MARK:- Outlets
+    @IBOutlet weak var RepositoryName: UILabel!
+    @IBOutlet weak var OwnerAvatar: UIImageView!
+    @IBOutlet weak var OwnerName: UILabel!
+    
+    @IBOutlet weak var CreationDate: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
