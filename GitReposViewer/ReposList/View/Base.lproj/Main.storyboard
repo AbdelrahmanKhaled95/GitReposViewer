@@ -24,6 +24,9 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="nvq-3d-jLh">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="P5g-ZL-soM"/>
+                                </connections>
                             </searchBar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="O5P-or-1qb">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
@@ -46,6 +49,7 @@
                     <navigationItem key="navigationItem" id="Bkv-QR-r7Z"/>
                     <connections>
                         <outlet property="activitySpinner" destination="O5P-or-1qb" id="try-Ri-bw1"/>
+                        <outlet property="searchBar" destination="nvq-3d-jLh" id="jZz-TU-W9M"/>
                         <outlet property="tableViewContainer" destination="rV0-9d-Q3y" id="lV0-XJ-Ni8"/>
                     </connections>
                 </viewController>
