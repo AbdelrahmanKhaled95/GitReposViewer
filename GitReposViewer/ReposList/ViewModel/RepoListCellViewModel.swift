@@ -6,3 +6,6 @@
 //
 
 import Foundation
+struct RepoListCellViewModel {
+    let repositoryName, ownerAvatar, ownerName, creationDate: String
+}
