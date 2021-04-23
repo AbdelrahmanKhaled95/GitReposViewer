@@ -21,7 +21,7 @@ class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDat
         super.init(frame: frame, style: .plain)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.dataSource = self
-        self.delegate = delegate
+        self.delegate = self
         self.register(Cell.self, forCellReuseIdentifier: "Cell")
     }
     
