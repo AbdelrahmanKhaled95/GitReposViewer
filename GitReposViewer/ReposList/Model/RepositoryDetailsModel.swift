@@ -14,7 +14,7 @@ struct RepositoryDetailsModel: Decodable {
     let repositoryDetailsModelPrivate: Bool
     let owner: RepositoryOwnerModel
     let htmlURL: String
-    let repositoryDetailsModelDescription: String
+    let description: String?
     let fork: Bool
     let url, forksURL: String
     let keysURL, collaboratorsURL: String
@@ -35,19 +35,17 @@ struct RepositoryDetailsModel: Decodable {
     let issuesURL, pullsURL, milestonesURL, notificationsURL: String
     let labelsURL, releasesURL: String
     let deploymentsURL: String
-    let createdAt, updatedAt, pushedAt: Date
+    let createdAt, updatedAt, pushedAt: String
     let gitURL, sshURL: String
     let cloneURL: String
     let svnURL: String
     let homepage: String
     let size, stargazersCount, watchersCount: Int
-    let language: String
     let hasIssues, hasProjects, hasDownloads, hasWiki: Bool
     let hasPages: Bool
     let forksCount: Int
     let archived, disabled: Bool
     let openIssuesCount: Int
-    let license: License
     let forks, openIssues, watchers: Int
     let defaultBranch: String
     let networkCount, subscribersCount: Int
@@ -60,7 +58,7 @@ struct RepositoryDetailsModel: Decodable {
         case repositoryDetailsModelPrivate = "private"
         case owner
         case htmlURL = "html_url"
-        case repositoryDetailsModelDescription = "description"
+        case description = "description"
         case fork, url
         case forksURL = "forks_url"
         case keysURL = "keys_url"
@@ -108,7 +106,6 @@ struct RepositoryDetailsModel: Decodable {
         case homepage, size
         case stargazersCount = "stargazers_count"
         case watchersCount = "watchers_count"
-        case language
         case hasIssues = "has_issues"
         case hasProjects = "has_projects"
         case hasDownloads = "has_downloads"
@@ -117,25 +114,11 @@ struct RepositoryDetailsModel: Decodable {
         case forksCount = "forks_count"
         case archived, disabled
         case openIssuesCount = "open_issues_count"
-        case license, forks
+        case forks
         case openIssues = "open_issues"
         case watchers
         case defaultBranch = "default_branch"
         case networkCount = "network_count"
         case subscribersCount = "subscribers_count"
-    }
-}
-
-// MARK: - License
-struct License: Codable {
-    let key, name, spdxID: String
-    let url: String
-    let nodeID: String
-
-    enum CodingKeys: String, CodingKey {
-        case key, name
-        case spdxID = "spdx_id"
-        case url
-        case nodeID = "node_id"
     }
 }
