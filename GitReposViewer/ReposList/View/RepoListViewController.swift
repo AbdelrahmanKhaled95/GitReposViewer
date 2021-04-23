@@ -22,57 +22,51 @@ class RepoListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "GitHub Repos"
-        genericTableView = GenericTableView(frame: tableViewContainer.bounds, items: <#T##[_]#>, config: <#T##(_, UITableViewCell) -> Void#>, selectHandler: <#T##(_) -> Void#>)
-        genericTableView = GenericTableView(frame: tableViewContainer.bounds, items: data, config: { (name, cell) in
-            cell.textLabel?.text = name
-        }, selectHandler: { (name) in
-            print(name)
-        })
+        genericTableView = GenericTableView(frame: tableViewContainer.bounds, items: viewModel.repoListCellViewModels, config: configRepoTable, selectHandler: selectHelper)
         tableViewContainer.addSubview(genericTableView)
         setupBinding()
     }
     
     func setupBinding() {
         viewModel.showAlert = { [weak self] () in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                if let message = self?.viewModel.errorMessage {
-                    self?.showAlert(message)
+                if let message = self.viewModel.errorMessage {
+                    self.showAlert(message)
                 }
             }
         }
-
         viewModel.updateLoadingStatus = { [weak self] () in
-            guard let self = self else {
-                return
-            }
-
+            guard let self = self else { return }
             DispatchQueue.main.async { [weak self] in
-                guard let self = self else {
-                    return
-                }
+                guard let self = self else { return }
                 switch self.viewModel.state {
                 case .empty, .error:
                     self.activitySpinner.stopAnimating()
                     UIView.animate(withDuration: 0.3, animations: {
                         self.genericTableView.alpha = 0.0
+                        self.activitySpinner.isHidden = true
                     })
                 case .loading:
                     self.activitySpinner.startAnimating()
                     UIView.animate(withDuration: 0.3, animations: {
                         self.genericTableView.alpha = 0.0
+                        self.activitySpinner.isHidden = false
                     })
                 case .filled:
                     self.activitySpinner.stopAnimating()
                     UIView.animate(withDuration: 0.3, animations: {
                         self.genericTableView.alpha = 1.0
+                        self.activitySpinner.isHidden = true
                     })
                 }
             }
         }
 
         viewModel.reloadTableView = { [weak self] () in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                self?.genericTableView.reloadData()
+                self.genericTableView.reloadTable(data: self.viewModel.repoListCellViewModels)
             }
         }
         
@@ -85,6 +79,12 @@ class RepoListViewController: BaseViewController {
 }
 
 extension RepoListViewController {
+    func configRepoTable(item: RepoListCellViewModel, cell: RepositoryTableViewCell) {
+        cell.repoListCellViewModel = item
+    }
     
+    func selectHelper(item: RepoListCellViewModel) {
+        
+    }
 }
 
