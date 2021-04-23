@@ -9,12 +9,12 @@ import Foundation
 
 enum WebRouter {
     //MARK:- Base URL
-    static let baseURL = "https://api.github.com/"
+    private static let baseURL = "https://api.github.com/"
     //MARK:- Endpoints
     case getRepos
     
     // Concatenate base url with endpoints
-    var path: String {
+    private var path: String {
         switch self {
         case .getRepos:
             return WebRouter.baseURL + "repositories"
