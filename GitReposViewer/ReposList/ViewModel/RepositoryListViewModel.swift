@@ -52,10 +52,6 @@ class RepositoryViewModel {
             self.getPublicReposOnly(reposList: RepoList)
         }
     }
-    // Return current loaded cell
-    func getCellViewModel(at indexPath: IndexPath) -> RepoListCellViewModel {
-        return repoListCellViewModels[indexPath.row]
-    }
 }
 //MARK:- Repo Filteration
 extension RepositoryViewModel {
