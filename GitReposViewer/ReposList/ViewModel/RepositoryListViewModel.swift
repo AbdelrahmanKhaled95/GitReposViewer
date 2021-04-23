@@ -11,6 +11,7 @@ class RepositoryViewModel {
     
     let webService: WebServiceProtocol
     private var allReposList: [RepositoryModel] = []
+    var selectedGitRepo: RepositoryModel?
     private var repoListCellViewModels: [RepoListCellViewModel] = [RepoListCellViewModel]() {
         didSet {
             self.reloadTableView?()
@@ -23,7 +24,18 @@ class RepositoryViewModel {
     
     //MARK:- Outlet Closures
     var reloadTableView: (()->())?
-    
+    var state: ViewState = .empty {
+        didSet {
+            self.updateLoadingStatus?()
+        }
+    }
+    var updateLoadingStatus: (()->())?
+    var alertMessage: String? {
+        didSet {
+            self.showAlert?()
+        }
+    }
+    var showAlert: (()->())?
     
     func fetchGitHubRepositories() {
         webService.getRequestArray(url: WebRouter.getRepos.url, responseType: RepositoryModel.self) { [weak self] (result, error) in
