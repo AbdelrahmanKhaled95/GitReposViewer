@@ -68,6 +68,7 @@ extension RepositoryViewModel {
     }
     //Step 2: Loop over each repo
     func getEachRepoInfo() {
+        self.allReposCreationDate.removeAll()
         self.allReposList.forEach { (repository) in
             getRepoCreationDate(repository: repository)
         }
@@ -107,10 +108,11 @@ extension RepositoryViewModel {
     func serachForRepo(searchValue: String) {
         var searchRepoList: [RepositoryModel] = []
         allReposList.forEach { (repository) in
-            if repository.name.contains(searchValue) {
+            if repository.name.contains(searchValue.lowercased()) {
                 searchRepoList.append(repository)
             }
         }
         self.allReposList = searchRepoList
+        self.getEachRepoInfo()
     }
 }
