@@ -7,7 +7,12 @@
 
 import Foundation
 
-class WebSerice {
+class WebSerice: WebServiceProtocol {
+    
+    func getRequest<ResponseType>(url: URL, responseType: ResponseType.Type, completionHandler: @escaping ([ResponseType]?, Error?) -> Void) where ResponseType : Decodable {
+        <#code#>
+    }
+    
     
 
 }
