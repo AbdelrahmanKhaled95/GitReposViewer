@@ -11,10 +11,19 @@ class RepositoryViewModel {
     
     let webService: WebServiceProtocol
     private var allReposList: [RepositoryModel] = []
+    private var repoListCellViewModels: [RepoListCellViewModel] = [RepoListCellViewModel]() {
+        didSet {
+            self.reloadTableView?()
+        }
+    }
     
     init(webService: WebServiceProtocol = WebSerice()) {
         self.webService = webService
     }
+    
+    //MARK:- Outlet Closures
+    var reloadTableView: (()->())?
+    
     
     func fetchGitHubRepositories() {
         webService.getRequestArray(url: WebRouter.getRepos.url, responseType: RepositoryModel.self) { [weak self] (result, error) in
