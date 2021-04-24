@@ -12,7 +12,6 @@ class RepoListViewController: BaseViewController {
     //MARK:- Outlets
     @IBOutlet weak var tableViewContainer: UIView!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     //MARK:-Properties
     var genericTableView: GenericTableView<RepoListCellViewModel, RepositoryTableViewCell>!

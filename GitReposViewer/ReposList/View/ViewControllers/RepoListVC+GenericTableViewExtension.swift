@@ -12,7 +12,7 @@ extension RepoListViewController {
     func configRepoTable(item: RepoListCellViewModel, cell: RepositoryTableViewCell) {
         cell.repoListCellViewModel = item
     }
-    func selectHelper(item: RepoListCellViewModel) {
-        print(item.repositoryName)
+    func selectHelper(item: RepoListCellViewModel, index: Int) {
+        performSegue(withIdentifier: "RepoDetail", sender: nil)
     }
 }

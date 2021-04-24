@@ -13,7 +13,7 @@ class RepositoryViewModel {
     let webService: WebServiceProtocol
     private var allReposList: [RepositoryModel] = []
     private var allReposCreationDate: [String] = []
-    var selectedGitRepo: RepositoryModel?
+    var contributorsURL, forksURL, branchesURL : String?
     var repoListCellViewModels: [RepoListCellViewModel] = [RepoListCellViewModel]() {
         didSet {
             self.reloadTableView?()
@@ -112,7 +112,20 @@ extension RepositoryViewModel {
                 searchRepoList.append(repository)
             }
         }
+        if searchRepoList.count == 0 {
+            self.repoListCellViewModels = []
+        }
         self.allReposList = searchRepoList
+        
         self.getEachRepoInfo()
+    }
+}
+//MARK:- Transfer data to second screen
+extension RepositoryViewModel {
+    func selectedRepo(index: Int){
+        let repository = self.allReposList[index]
+        self.contributorsURL = repository.contributorsURL
+        self.forksURL = repository.forksURL
+        self.branchesURL = repository.branchesURL
     }
 }
