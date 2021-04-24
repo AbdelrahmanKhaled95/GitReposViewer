@@ -5,6 +5,6 @@
 //  Created by Abdelrahman Hussein on 24/04/2021.
 //
 
-struct RepoDetailsCollectionCellViewModel {
+struct ForkListCellViewModel {
     let avatarImage, ownerName: String?
 }
