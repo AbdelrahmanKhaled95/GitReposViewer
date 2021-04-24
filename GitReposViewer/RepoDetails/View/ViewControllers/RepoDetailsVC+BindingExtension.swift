@@ -15,6 +15,25 @@ extension RepoDetailViewController {
             DispatchQueue.main.async {
                 if let message = self.viewModel.errorMessage {
                     self.showAlert(message)
+                    self.genericTableView?.setEmptyMessage(message)
+                    self.forkGenericCollectionView?.setEmptyMessage(message)
+                    self.contributorGenericCollectionView?.setEmptyMessage(message)
+                }
+            }
+        }
+        viewModel.updateLoadingStatus = { [weak self] () in
+            guard let self = self else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch self.viewModel.state {
+                case .empty, .error:
+                    return
+                case .loading:
+                    return
+                case .filled:
+                    self.genericTableView?.restore()
+                    self.forkGenericCollectionView?.restore()
+                    self.forkGenericCollectionView?.restore()
                 }
             }
         }
@@ -41,7 +60,6 @@ extension RepoDetailViewController {
                 contributorGenericCollectionView.reloadTable(data: self.viewModel.contributorListCellViewModel)
             }
         }
-        
         guard let ownerName = ownerName, let repositoryName = repositoryName else { return }
         viewModel.fetchRepoBranches(ownerName: ownerName, repositoryName: repositoryName)
         viewModel.fetchRepoForks(ownerName: ownerName, repositoryName: repositoryName)
