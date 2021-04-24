@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RepoDetailViewController: UIViewController {
+class RepoDetailViewController: BaseViewController {
     
     //MARK:- Outlets
     @IBOutlet weak var avatarImageView: UIImageView!
