@@ -7,22 +7,27 @@
 
 import UIKit
 
-class GenericCollectionViewController<Item, Cell: UICollectionViewCell>: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
+class GenericCollectionViewController<Item, Cell: UICollectionViewCell>: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     //MARK:- Properties
     var items: [Item]
     var config: (Item, Cell) -> Void
-    var selectHandler: (Item, Int) -> Void
     //MARK:- Initializer
-    init(frame: CGRect, items: [Item], config: @escaping (Item, Cell) -> Void, selectHandler: @escaping (Item, Int) -> Void) {
+    init(frame: CGRect, items: [Item], config: @escaping (Item, Cell) -> Void) {
         self.items = items
         self.config = config
-        self.selectHandler = selectHandler
-        super.init(frame: frame, collectionViewLayout: UICollectionViewLayout())
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        super.init(frame: frame, collectionViewLayout: layout)
+        layout.itemSize = CGSize(width: self.contentSize.width/5, height: self.contentSize.height/3)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.dataSource = self
-        self.delegate = self
         self.registerNib()
+        self.backgroundColor = .white
+        self.isPagingEnabled = true
+        if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -37,10 +42,6 @@ class GenericCollectionViewController<Item, Cell: UICollectionViewCell>: UIColle
         guard let cell = self.dequeueReusableCell(withReuseIdentifier: "\(Cell.self)", for: indexPath) as? Cell else { fatalError() }
         config(items[indexPath.row], cell)
         return cell
-    }
-    //MARK:- Delegation
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectHandler(items[indexPath.row], indexPath.row)
     }
 }
 //MARK:- Reload Table
