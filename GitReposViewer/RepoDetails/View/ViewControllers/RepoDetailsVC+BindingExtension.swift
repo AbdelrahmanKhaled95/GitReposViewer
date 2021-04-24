@@ -52,17 +52,25 @@ extension RepoDetailViewController {
             }
         }
         
-        viewModel.reloadCollectionView = { [weak self] () in
+        viewModel.reloadForkCollectionView = { [weak self] () in
             guard let self = self else { return }
-            guard let genericCollectionView = self.genericCollectionView else { return }
+            guard let forkGenericCollectionView = self.forkGenericCollectionView else { return }
             DispatchQueue.main.async {
-                genericCollectionView.reloadTable(data: self.viewModel.repoDetailsCollectionCellViewModel)
+                forkGenericCollectionView.reloadTable(data: self.viewModel.forkListCellViewModel)
+            }
+        }
+        
+        viewModel.reloadContributorCollectionView = { [weak self] () in
+            guard let self = self else { return }
+            guard let contributorGenericCollectionView = self.contributorGenericCollectionView else { return }
+            DispatchQueue.main.async {
+                contributorGenericCollectionView.reloadTable(data: self.viewModel.contributorListCellViewModel)
             }
         }
         
         guard let ownerName = ownerName, let repositoryName = repositoryName else { return }
         viewModel.fetchRepoBranches(ownerName: ownerName, repositoryName: repositoryName)
         viewModel.fetchRepoForks(ownerName: ownerName, repositoryName: repositoryName)
-//        viewModel.fetchRepoContributors(ownerName: ownerName, repositoryName: repositoryName)
+        viewModel.fetchRepoContributors(ownerName: ownerName, repositoryName: repositoryName)
     }
 }
