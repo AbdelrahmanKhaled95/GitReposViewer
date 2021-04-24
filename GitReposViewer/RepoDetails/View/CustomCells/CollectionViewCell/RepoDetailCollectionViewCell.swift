@@ -18,4 +18,11 @@ class RepoDetailCollectionViewCell: UICollectionViewCell {
         avatarImageView.image = nil
     }
     
+    var repoDetailsCollectionCellViewModel : RepoDetailsCollectionCellViewModel? {
+        didSet {
+            ownerNameLabel.text = repoDetailsCollectionCellViewModel?.ownerName
+            avatarImageView?.loadImage(from: repoDetailsCollectionCellViewModel?.avatarImage)
+        }
+    }
+    
 }
