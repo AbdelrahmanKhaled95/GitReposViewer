@@ -7,23 +7,50 @@
 
 import UIKit
 
-class RepoDetailsVC_BindingExtension: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+//MARK:- Setup binding
+extension RepoDetailViewController {
+    func setupBinding() {
+        viewModel.showAlert = { [weak self] () in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                if let message = self.viewModel.errorMessage {
+                    self.showAlert(message)
+                }
+            }
+        }
+        viewModel.updateLoadingStatus = { [weak self] () in
+            guard let self = self else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch self.viewModel.state {
+                case .empty, .error:
+                    self.activitySpinner.stopAnimating()
+                    UIView.animate(withDuration: 0.1, animations: {
+                        
+                        self.activitySpinner.isHidden = true
+                    })
+                case .loading:
+                    self.activitySpinner.startAnimating()
+                    UIView.animate(withDuration: 0.1, animations: {
+                        
+                        self.activitySpinner.isHidden = false
+                    })
+                case .filled:
+                    self.activitySpinner.stopAnimating()
+                    UIView.animate(withDuration: 0.1, animations: {
+                        
+                        self.activitySpinner.isHidden = true
+                    })
+                }
+            }
+        }
+        viewModel.reloadTableView = { [weak self] () in
+            guard let self = self else { return }
+            guard let genericTableView = self.genericTableView else { return }
+            DispatchQueue.main.async {
+                genericTableView.reloadTable(data: self.viewModel.repoListCellViewModels)
+            }
+        }
+        viewModel.initalFetchGitHubRepositories()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
