@@ -23,6 +23,7 @@ class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDat
         self.dataSource = self
         self.delegate = self
         self.registerNib()
+        self.tableFooterView = UIView()
     }
     
     required init?(coder: NSCoder) {
