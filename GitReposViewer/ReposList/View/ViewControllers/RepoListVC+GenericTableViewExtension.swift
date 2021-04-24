@@ -17,4 +17,8 @@ extension RepoListViewController {
         self.selectedRepository = item
         performSegue(withIdentifier: "RepoDetail", sender: nil)
     }
+    
+    func prefetchRepositoryList() {
+        viewModel.fetchPaginatedRepos()
+    }
 }
