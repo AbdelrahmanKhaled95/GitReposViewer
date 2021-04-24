@@ -51,7 +51,18 @@ extension RepoDetailViewController {
                 genericTableView.reloadTable(data: self.viewModel.branchListCellViewModel)
             }
         }
+        
+        viewModel.reloadCollectionView = { [weak self] () in
+            guard let self = self else { return }
+            guard let genericCollectionView = self.genericCollectionView else { return }
+            DispatchQueue.main.async {
+                genericCollectionView.reloadTable(data: self.viewModel.repoDetailsCollectionCellViewModel)
+            }
+        }
+        
         guard let ownerName = ownerName, let repositoryName = repositoryName else { return }
         viewModel.fetchRepoBranches(ownerName: ownerName, repositoryName: repositoryName)
+        viewModel.fetchRepoForks(ownerName: ownerName, repositoryName: repositoryName)
+//        viewModel.fetchRepoContributors(ownerName: ownerName, repositoryName: repositoryName)
     }
 }
