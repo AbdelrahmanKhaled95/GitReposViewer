@@ -28,9 +28,9 @@ class RepoDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupGenericTableView()
         setupView()
         setupBinding()
-        // Do any additional setup after loading the view.
     }
     
     func setupGenericTableView() {

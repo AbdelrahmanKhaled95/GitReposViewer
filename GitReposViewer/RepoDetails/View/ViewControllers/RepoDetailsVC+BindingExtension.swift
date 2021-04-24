@@ -24,22 +24,22 @@ extension RepoDetailViewController {
                 guard let self = self else { return }
                 switch self.viewModel.state {
                 case .empty, .error:
-                    self.activitySpinner.stopAnimating()
+//                    self.activitySpinner.stopAnimating()
                     UIView.animate(withDuration: 0.1, animations: {
                         
-                        self.activitySpinner.isHidden = true
+//                        self.activitySpinner.isHidden = true
                     })
                 case .loading:
-                    self.activitySpinner.startAnimating()
+//                    self.activitySpinner.startAnimating()
                     UIView.animate(withDuration: 0.1, animations: {
                         
-                        self.activitySpinner.isHidden = false
+//                        self.activitySpinner.isHidden = false
                     })
                 case .filled:
-                    self.activitySpinner.stopAnimating()
+//                    self.activitySpinner.stopAnimating()
                     UIView.animate(withDuration: 0.1, animations: {
                         
-                        self.activitySpinner.isHidden = true
+//                        self.activitySpinner.isHidden = true
                     })
                 }
             }
@@ -48,9 +48,10 @@ extension RepoDetailViewController {
             guard let self = self else { return }
             guard let genericTableView = self.genericTableView else { return }
             DispatchQueue.main.async {
-                genericTableView.reloadTable(data: self.viewModel.repoListCellViewModels)
+                genericTableView.reloadTable(data: self.viewModel.branchListCellViewModel)
             }
         }
-        viewModel.initalFetchGitHubRepositories()
+        guard let ownerName = ownerName, let repositoryName = repositoryName else { return }
+        viewModel.fetchRepoBranches(ownerName: ownerName, repositoryName: repositoryName)
     }
 }
