@@ -26,19 +26,19 @@ extension RepoListViewController {
                 case .empty, .error:
                     self.activitySpinner.stopAnimating()
                     UIView.animate(withDuration: 0.1, animations: {
-                        self.genericTableView.alpha = 0.0
+                        
                         self.activitySpinner.isHidden = true
                     })
                 case .loading:
                     self.activitySpinner.startAnimating()
                     UIView.animate(withDuration: 0.1, animations: {
-                        self.genericTableView.alpha = 0.0
+                        
                         self.activitySpinner.isHidden = false
                     })
                 case .filled:
                     self.activitySpinner.stopAnimating()
                     UIView.animate(withDuration: 0.1, animations: {
-                        self.genericTableView.alpha = 1.0
+                        
                         self.activitySpinner.isHidden = true
                     })
                 }
@@ -46,8 +46,9 @@ extension RepoListViewController {
         }
         viewModel.reloadTableView = { [weak self] () in
             guard let self = self else { return }
+            guard let genericTableView = self.genericTableView else { return }
             DispatchQueue.main.async {
-                self.genericTableView.reloadTable(data: self.viewModel.repoListCellViewModels)
+                genericTableView.reloadTable(data: self.viewModel.repoListCellViewModels)
             }
         }
         viewModel.initalFetchGitHubRepositories()
