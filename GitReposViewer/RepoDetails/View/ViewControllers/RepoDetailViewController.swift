@@ -36,8 +36,8 @@ class RepoDetailViewController: BaseViewController {
     }
     
     func setupGenericCollectionView() {
-        forkGenericCollectionView = GenericCollectionViewController(frame: forkCollectionViewController.bounds, items: viewModel.forkListCellViewModel, config: configForkCollection)
-        contributorGenericCollectionView = GenericCollectionViewController(frame: forkCollectionViewController.bounds, items: viewModel.contributorListCellViewModel, config: configContributorCollection)
+        forkGenericCollectionView = GenericCollectionViewController(frame: forkCollectionViewController.bounds, items: viewModel.forkListCellViewModel, config: configForkCollection, prefetch: prefetchFork)
+        contributorGenericCollectionView = GenericCollectionViewController(frame: forkCollectionViewController.bounds, items: viewModel.contributorListCellViewModel, config: configContributorCollection, prefetch: prefetchContributor)
         if let forkGenericCollectionView = forkGenericCollectionView, let contributorGenericCollectionView = contributorGenericCollectionView {
             forkCollectionViewController.addSubview(forkGenericCollectionView)
             contributorViewContainer.addSubview(contributorGenericCollectionView)
@@ -45,7 +45,7 @@ class RepoDetailViewController: BaseViewController {
     }
     
     func setupGenericTableView() {
-        genericTableView = GenericTableView(frame: branchListTableViewController.bounds, items: viewModel.branchListCellViewModel, config: configRepoTable, selectHandler: selectHelper)
+        genericTableView = GenericTableView(frame: branchListTableViewController.bounds, items: viewModel.branchListCellViewModel, config: configRepoTable, selectHandler: nil, prefetch: prefetchBranch)
         if let genericTableView = genericTableView{
             branchListTableViewController.addSubview(genericTableView)
         }

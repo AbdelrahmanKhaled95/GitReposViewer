@@ -29,7 +29,7 @@ class RepoListViewController: BaseViewController {
     }
     
     func setupGenericTableView() {
-        genericTableView = GenericTableView(frame: tableViewContainer.bounds, items: viewModel.repoListCellViewModels, config: configRepoTable, selectHandler: selectHelper)
+        genericTableView = GenericTableView(frame: tableViewContainer.bounds, items: viewModel.repoListCellViewModels, config: configRepoTable, selectHandler: selectHelper, prefetch: nil)
         if let genericTableView = genericTableView{
             tableViewContainer.addSubview(genericTableView)
         }
