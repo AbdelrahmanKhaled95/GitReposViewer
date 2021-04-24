@@ -10,5 +10,4 @@ import Foundation
 protocol WebServiceProtocol {
     func getRequestArray<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completionHandler: @escaping ([ResponseType]?, Error?) -> Void)
     func getRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completionHandler: @escaping (ResponseType?, Error?) -> Void)
-    func loadImages(urlString: String, completionHandler: @escaping (Data?, Error?) -> Void)
 }
