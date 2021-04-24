@@ -5,4 +5,6 @@
 //  Created by Abdelrahman Hussein on 24/04/2021.
 //
 
-import Foundation
+struct RepoDetailsCollectionCellViewModel {
+    let avatarImage, ownerName: String?
+}
