@@ -14,7 +14,7 @@ class RepoListViewController: BaseViewController {
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     
     //MARK:-Properties
-    var genericTableView: GenericTableView<RepoListCellViewModel, RepositoryTableViewCell>!
+    var genericTableView: GenericTableView<RepoListCellViewModel, RepositoryTableViewCell>?
     lazy var viewModel: RepositoryViewModel = {
         return RepositoryViewModel()
     }()
@@ -23,9 +23,16 @@ class RepoListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "GitHub Repos"
-        genericTableView = GenericTableView(frame: tableViewContainer.bounds, items: viewModel.repoListCellViewModels, config: configRepoTable, selectHandler: selectHelper)
-        tableViewContainer.addSubview(genericTableView)
+
+        setupGenericTableView()
         setupBinding()
+    }
+    
+    func setupGenericTableView() {
+        genericTableView = GenericTableView(frame: tableViewContainer.bounds, items: viewModel.repoListCellViewModels, config: configRepoTable, selectHandler: selectHelper)
+        if let genericTableView = genericTableView{
+            tableViewContainer.addSubview(genericTableView)
+        }
     }
     
     override func didReceiveMemoryWarning() {
