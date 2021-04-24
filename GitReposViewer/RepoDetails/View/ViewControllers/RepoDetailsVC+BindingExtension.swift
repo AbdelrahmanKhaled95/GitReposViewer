@@ -18,32 +18,6 @@ extension RepoDetailViewController {
                 }
             }
         }
-        viewModel.updateLoadingStatus = { [weak self] () in
-            guard let self = self else { return }
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                switch self.viewModel.state {
-                case .empty, .error:
-//                    self.activitySpinner.stopAnimating()
-                    UIView.animate(withDuration: 0.1, animations: {
-                        
-//                        self.activitySpinner.isHidden = true
-                    })
-                case .loading:
-//                    self.activitySpinner.startAnimating()
-                    UIView.animate(withDuration: 0.1, animations: {
-                        
-//                        self.activitySpinner.isHidden = false
-                    })
-                case .filled:
-//                    self.activitySpinner.stopAnimating()
-                    UIView.animate(withDuration: 0.1, animations: {
-                        
-//                        self.activitySpinner.isHidden = true
-                    })
-                }
-            }
-        }
         viewModel.reloadTableView = { [weak self] () in
             guard let self = self else { return }
             guard let genericTableView = self.genericTableView else { return }
