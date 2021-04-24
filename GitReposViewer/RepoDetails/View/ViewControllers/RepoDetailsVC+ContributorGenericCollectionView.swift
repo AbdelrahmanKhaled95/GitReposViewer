@@ -12,4 +12,10 @@ extension RepoDetailViewController {
     func configContributorCollection(item: ContributorListCellViewModel, cell: RepoDetailCollectionViewCell) {
         cell.contributorListCellViewModel = item
     }
+    
+    func prefetchContributor() {
+        guard let ownerName = ownerName, let repositoryName = repositoryName else { return }
+        viewModel.fetchRepoContributors(ownerName: ownerName, repositoryName: repositoryName)
+    }
 }
+

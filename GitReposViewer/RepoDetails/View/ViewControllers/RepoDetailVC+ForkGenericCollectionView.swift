@@ -12,4 +12,10 @@ extension RepoDetailViewController {
     func configForkCollection(item: ForkListCellViewModel, cell: RepoDetailCollectionViewCell) {
         cell.forkListCellViewModel = item
     }
+    
+    func prefetchFork() {
+        guard let ownerName = ownerName, let repositoryName = repositoryName else { return }
+        viewModel.fetchRepoForks(ownerName: ownerName, repositoryName: repositoryName)
+        
+    }
 }
