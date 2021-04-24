@@ -68,22 +68,4 @@ class WebSerice: WebServiceProtocol {
         }
         task.resume()
     }
-    
-    //MARK:- load Images
-    func loadImages(urlString: String, completionHandler: @escaping (Data?, Error?) -> Void) {
-        if let url = URL(string: urlString) {
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else {
-                    DispatchQueue.main.async {
-                        completionHandler(nil, error)
-                    }
-                    return
-                }
-                DispatchQueue.main.async { // execute on main thread
-                    completionHandler(data, nil)
-                }
-            }
-            task.resume()
-        }
-    }
 }
