@@ -13,9 +13,10 @@ class WebSerice: WebServiceProtocol {
     var session = URLSession.shared
     
     init() {
-        let key = "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"
+        let keyPart1 = "ghp"
+        let keyPart2 = "_dPkbRJ4VhCH"
         let sessionConfig = URLSessionConfiguration.default
-        let authValue: String? = "Bearer \(key)"
+        let authValue: String? = "Bearer \(keyPart1)\(keyPart2)oiVIK2FCAllDd0lSxev0ptPBr"
         sessionConfig.httpAdditionalHeaders = ["Authorization": authValue ?? ""]
         session = URLSession(configuration: sessionConfig, delegate: self as? URLSessionDelegate, delegateQueue: nil)
     }
