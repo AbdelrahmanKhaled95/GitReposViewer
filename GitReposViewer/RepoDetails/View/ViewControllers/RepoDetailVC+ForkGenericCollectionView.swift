@@ -9,9 +9,7 @@ import UIKit
 
 //MARK:- Generic CollectionView closures
 extension RepoDetailViewController {
-//    func configRepoTable(item: BranchesListCellViewModel, cell: UITableViewCell) {
-//        cell.textLabel?.text = item.branchName
-//    }
-//    func selectHelper(item: BranchesListCellViewModel, index: Int) {
-//    }
+    func configRepoCollection(item: ForkListCellViewModel, cell: RepoDetailCollectionViewCell) {
+        cell.forkListCellViewModel = item
+    }
 }
