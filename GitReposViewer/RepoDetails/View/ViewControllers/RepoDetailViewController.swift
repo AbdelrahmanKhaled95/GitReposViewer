@@ -21,7 +21,8 @@ class RepoDetailViewController: BaseViewController {
     //MARK:- Properties
     var repositoryName, ownerName, ownerAvatar, createionDate, contributors, forks, branches: String?
     var genericTableView: GenericTableView<BranchesListCellViewModel, BranchTableViewCell>?
-    var genericCollectionView: GenericCollectionViewController<>?
+    var forkGenericCollectionView: GenericCollectionViewController<ForkListCellViewModel,RepoDetailCollectionViewCell>?
+    var contributorGenericCollectionView: GenericCollectionViewController<ContributorListCellViewModel,RepoDetailCollectionViewCell>?
     lazy var viewModel: RepoDetailsViewModel = {
         return RepoDetailsViewModel()
     }()
@@ -29,8 +30,18 @@ class RepoDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGenericTableView()
+        setupGenericCollectionView()
         setupView()
         setupBinding()
+    }
+    
+    func setupGenericCollectionView() {
+        forkGenericCollectionView = GenericCollectionViewController(frame: forkCollectionViewController.bounds, items: viewModel.forkListCellViewModel, config: configForkCollection)
+        contributorGenericCollectionView = GenericCollectionViewController(frame: forkCollectionViewController.bounds, items: viewModel.contributorListCellViewModel, config: configContributorCollection)
+        if let forkGenericCollectionView = forkGenericCollectionView, let contributorGenericCollectionView = contributorGenericCollectionView {
+            forkCollectionViewController.addSubview(forkGenericCollectionView)
+            contributorViewContainer.addSubview(contributorGenericCollectionView)
+        }
     }
     
     func setupGenericTableView() {
