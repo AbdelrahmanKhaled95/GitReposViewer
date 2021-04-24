@@ -58,6 +58,10 @@
                 <constraint firstItem="teE-rQ-BQi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="a3H-Xi-2Tq"/>
             </constraints>
             <size key="customSize" width="146" height="162"/>
+            <connections>
+                <outlet property="avatarImageView" destination="Uy1-Cc-6Ew" id="E16-7q-3Qp"/>
+                <outlet property="ownerNameLabel" destination="Lxr-zy-0YB" id="3AM-9c-gyV"/>
+            </connections>
             <point key="canvasLocation" x="68.115942028985515" y="90.401785714285708"/>
         </collectionViewCell>
     </objects>

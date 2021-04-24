@@ -9,9 +9,13 @@ import UIKit
 
 class RepoDetailCollectionViewCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    //MARK:- Outlets
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var ownerNameLabel: UILabel!
+    
+    override func prepareForReuse() {
+        ownerNameLabel.text = ""
+        avatarImageView.image = nil
     }
-
+    
 }
