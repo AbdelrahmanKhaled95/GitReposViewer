@@ -1,0 +1,27 @@
+
+[
+    {
+        "name": "master",
+        "commit": {
+            "sha": "5608567286e64a1c55c5e7fcd415364e04f8986e",
+            "url": "https://api.github.com/repos/mojombo/grit/commits/5608567286e64a1c55c5e7fcd415364e04f8986e"
+        },
+        "protected": false
+    },
+    {
+        "name": "no_raw_git",
+        "commit": {
+            "sha": "bb86f835906830bd248ce10d704a6627036d5939",
+            "url": "https://api.github.com/repos/mojombo/grit/commits/bb86f835906830bd248ce10d704a6627036d5939"
+        },
+        "protected": false
+    },
+    {
+        "name": "patch-id",
+        "commit": {
+            "sha": "bc628b07a6415de47cd10f22cb5af2f54e9ef29e",
+            "url": "https://api.github.com/repos/mojombo/grit/commits/bc628b07a6415de47cd10f22cb5af2f54e9ef29e"
+        },
+        "protected": false
+    }
+]

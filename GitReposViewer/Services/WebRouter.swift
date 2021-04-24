@@ -9,15 +9,27 @@ import Foundation
 
 enum WebRouter {
     //MARK:- Base URL
-    static let baseURL = "https://api.github.com/"
+    private static let baseURL = "https://api.github.com/"
     //MARK:- Endpoints
     case getRepos
+    case getCreationDate(String, String)
+    case getBranches(String, String, Int)
+    case getForks(String, String)
+    case getContributors(String, String)
     
     // Concatenate base url with endpoints
-    var path: String {
+    private var path: String {
         switch self {
         case .getRepos:
             return WebRouter.baseURL + "repositories"
+        case .getCreationDate(let owner, let repositoryName):
+            return WebRouter.baseURL + "repos/\(owner)/\(repositoryName)"
+        case .getBranches(let owner, let repositoryName, let page):
+            return WebRouter.baseURL + "repos/\(owner)/\(repositoryName)/branches?page=\(page)&per_page=10"
+        case .getForks(let owner, let repositoryName):
+            return WebRouter.baseURL + "repos/\(owner)/\(repositoryName)/forks"
+        case .getContributors(let owner, let repositoryName):
+            return WebRouter.baseURL + "repos/\(owner)/\(repositoryName)/contributors"
         }
     }
     // Convert url string to URL
