@@ -12,9 +12,9 @@ class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDat
     //MARK:- Properties
     var items: [Item]
     var config: (Item, Cell) -> Void
-    var selectHandler: (Item) -> Void
+    var selectHandler: (Item, Int) -> Void
     //MARK:- Initializer
-    init(frame: CGRect, items: [Item], config: @escaping (Item, Cell) -> Void, selectHandler: @escaping (Item) -> Void) {
+    init(frame: CGRect, items: [Item], config: @escaping (Item, Cell) -> Void, selectHandler: @escaping (Item, Int) -> Void) {
         self.items = items
         self.config = config
         self.selectHandler = selectHandler
@@ -39,7 +39,7 @@ class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDat
     }
     //MARK:- Delegation
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectHandler(items[indexPath.row])
+        selectHandler(items[indexPath.row], indexPath.row)
     }
 }
 //MARK:- Reload Table
