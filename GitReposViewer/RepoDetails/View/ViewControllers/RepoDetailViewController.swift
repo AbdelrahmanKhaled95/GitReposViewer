@@ -21,7 +21,7 @@ class RepoDetailViewController: BaseViewController {
     
     //MARK:- Properties
     var repositoryName, ownerName, ownerAvatar, createionDate, contributors, forks, branches: String?
-    var genericTableView: GenericTableView<BranchesListCellViewModel, UITableViewCell>?
+    var genericTableView: GenericTableView<BranchesListCellViewModel, BranchTableViewCell>?
     lazy var viewModel: RepoDetailsViewModel = {
         return RepoDetailsViewModel()
     }()
