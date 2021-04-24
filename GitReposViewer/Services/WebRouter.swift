@@ -13,7 +13,7 @@ enum WebRouter {
     //MARK:- Endpoints
     case getRepos
     case getCreationDate(String, String)
-    case getBranches(String, String)
+    case getBranches(String, String, Int)
     case getForks(String, String)
     case getContributors(String, String)
     
@@ -24,8 +24,8 @@ enum WebRouter {
             return WebRouter.baseURL + "repositories"
         case .getCreationDate(let owner, let repositoryName):
             return WebRouter.baseURL + "repos/\(owner)/\(repositoryName)"
-        case .getBranches(let owner, let repositoryName):
-            return WebRouter.baseURL + "repos/\(owner)/\(repositoryName)/branches"
+        case .getBranches(let owner, let repositoryName, let page):
+            return WebRouter.baseURL + "repos/\(owner)/\(repositoryName)/branches?page=\(page)&per_page=10"
         case .getForks(let owner, let repositoryName):
             return WebRouter.baseURL + "repos/\(owner)/\(repositoryName)/forks"
         case .getContributors(let owner, let repositoryName):
