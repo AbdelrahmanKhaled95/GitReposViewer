@@ -40,6 +40,8 @@
 		2B0E863D263498CA003CC340 /* WebServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E863C263498CA003CC340 /* WebServiceMock.swift */; };
 		2B0E86452634A0E1003CC340 /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E86442634A0E1003CC340 /* StubGenerator.swift */; };
 		2B0E86532634A315003CC340 /* GitHubErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E86522634A315003CC340 /* GitHubErrorMessage.swift */; };
+		2B0E86582634ACFA003CC340 /* Bundle+unitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E86572634ACFA003CC340 /* Bundle+unitTest.swift */; };
+		2B0E865D2634AEBD003CC340 /* RepositoryStub.json in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E865C2634AEBD003CC340 /* RepositoryStub.json */; };
 		2B6FE25D2632D98D00E3C00F /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE25C2632D98D00E3C00F /* RepositoryModel.swift */; };
 		2B6FE2652632DC5C00E3C00F /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE2642632DC5B00E3C00F /* RepositoryViewModel.swift */; };
 		2B6FE2862632F6A400E3C00F /* RepositoryDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE2852632F6A400E3C00F /* RepositoryDetailsModel.swift */; };
@@ -111,6 +113,9 @@
 		2B0E863C263498CA003CC340 /* WebServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceMock.swift; sourceTree = "<group>"; };
 		2B0E86442634A0E1003CC340 /* StubGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
 		2B0E86522634A315003CC340 /* GitHubErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubErrorMessage.swift; sourceTree = "<group>"; };
+		2B0E86572634ACFA003CC340 /* Bundle+unitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+unitTest.swift"; sourceTree = "<group>"; };
+		2B0E865C2634AEBD003CC340 /* RepositoryStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RepositoryStub.json; sourceTree = "<group>"; };
+		2B0E86642634B2C7003CC340 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		2B6FE25C2632D98D00E3C00F /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		2B6FE2642632DC5B00E3C00F /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
 		2B6FE2852632F6A400E3C00F /* RepositoryDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsModel.swift; sourceTree = "<group>"; };
@@ -293,6 +298,7 @@
 				2BA167F02632970E0077AC76 /* ReposList */,
 				2BA167F4263297630077AC76 /* RepoDetails */,
 				2BA167E7263295830077AC76 /* Resources */,
+				2B0E86642634B2C7003CC340 /* Config.xcconfig */,
 			);
 			path = GitReposViewer;
 			sourceTree = "<group>";
@@ -305,6 +311,8 @@
 				2B0E862A26348EF6003CC340 /* GitReposViewerTests-Bridging-Header.h */,
 				2B0E863C263498CA003CC340 /* WebServiceMock.swift */,
 				2B0E86442634A0E1003CC340 /* StubGenerator.swift */,
+				2B0E86572634ACFA003CC340 /* Bundle+unitTest.swift */,
+				2B0E865C2634AEBD003CC340 /* RepositoryStub.json */,
 			);
 			path = GitReposViewerTests;
 			sourceTree = "<group>";
@@ -598,8 +606,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B0E863D263498CA003CC340 /* WebServiceMock.swift in Sources */,
+				2B0E86582634ACFA003CC340 /* Bundle+unitTest.swift in Sources */,
 				2B0E86452634A0E1003CC340 /* StubGenerator.swift in Sources */,
 				2B0E862C26348EF6003CC340 /* RepoListViewModelTest.swift in Sources */,
+				2B0E865D2634AEBD003CC340 /* RepositoryStub.json in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +658,7 @@
 /* Begin XCBuildConfiguration section */
 		2BA167D6263294430077AC76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B0E86642634B2C7003CC340 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -709,6 +720,7 @@
 		};
 		2BA167D7263294430077AC76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B0E86642634B2C7003CC340 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
