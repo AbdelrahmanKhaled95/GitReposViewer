@@ -20,6 +20,20 @@
 		2B0E8570263390AE003CC340 /* RepoListVC+UISearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E856F263390AE003CC340 /* RepoListVC+UISearchBarExtension.swift */; };
 		2B0E8578263390F0003CC340 /* RepoListVC+NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E8577263390F0003CC340 /* RepoListVC+NavigationExtension.swift */; };
 		2B0E858326339135003CC340 /* RepoListVC+BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E858226339135003CC340 /* RepoListVC+BindingExtension.swift */; };
+		2B0E85952633D7CF003CC340 /* RepoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85942633D7CF003CC340 /* RepoDetailsViewModel.swift */; };
+		2B0E85A22633D995003CC340 /* ContributorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85A12633D995003CC340 /* ContributorModel.swift */; };
+		2B0E85A72633DA00003CC340 /* ForkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85A62633DA00003CC340 /* ForkModel.swift */; };
+		2B0E85AC2633DB24003CC340 /* BranchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85AB2633DB24003CC340 /* BranchModel.swift */; };
+		2B0E85B826341AE9003CC340 /* BranchesListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85B726341AE9003CC340 /* BranchesListCellViewModel.swift */; };
+		2B0E85BD26341F90003CC340 /* RepoDetailsVC+GenericBranchListTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85BC26341F90003CC340 /* RepoDetailsVC+GenericBranchListTableViewExtension.swift */; };
+		2B0E85C226342063003CC340 /* RepoDetailVC+GenericForksListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85C126342063003CC340 /* RepoDetailVC+GenericForksListCollectionView.swift */; };
+		2B0E85C726342130003CC340 /* RepoDetailsVC+BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85C626342130003CC340 /* RepoDetailsVC+BindingExtension.swift */; };
+		2B0E85DF26342675003CC340 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85DD26342675003CC340 /* BranchTableViewCell.swift */; };
+		2B0E85E026342675003CC340 /* BranchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0E85DE26342675003CC340 /* BranchTableViewCell.xib */; };
+		2B0E85E9263429B1003CC340 /* GenericCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85E8263429B1003CC340 /* GenericCollectionViewController.swift */; };
+		2B0E85EE26342A8C003CC340 /* GenericCollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85ED26342A8C003CC340 /* GenericCollectionView+Extension.swift */; };
+		2B0E85FA26342DA1003CC340 /* RepoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E85F826342DA1003CC340 /* RepoDetailCollectionViewCell.swift */; };
+		2B0E85FB26342DA1003CC340 /* RepoDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0E85F926342DA1003CC340 /* RepoDetailCollectionViewCell.xib */; };
 		2B6FE25D2632D98D00E3C00F /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE25C2632D98D00E3C00F /* RepositoryModel.swift */; };
 		2B6FE2652632DC5C00E3C00F /* RepositoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE2642632DC5B00E3C00F /* RepositoryListViewModel.swift */; };
 		2B6FE2862632F6A400E3C00F /* RepositoryDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FE2852632F6A400E3C00F /* RepositoryDetailsModel.swift */; };
@@ -73,6 +87,20 @@
 		2B0E856F263390AE003CC340 /* RepoListVC+UISearchBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoListVC+UISearchBarExtension.swift"; sourceTree = "<group>"; };
 		2B0E8577263390F0003CC340 /* RepoListVC+NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoListVC+NavigationExtension.swift"; sourceTree = "<group>"; };
 		2B0E858226339135003CC340 /* RepoListVC+BindingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoListVC+BindingExtension.swift"; sourceTree = "<group>"; };
+		2B0E85942633D7CF003CC340 /* RepoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsViewModel.swift; sourceTree = "<group>"; };
+		2B0E85A12633D995003CC340 /* ContributorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorModel.swift; sourceTree = "<group>"; };
+		2B0E85A62633DA00003CC340 /* ForkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkModel.swift; sourceTree = "<group>"; };
+		2B0E85AB2633DB24003CC340 /* BranchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchModel.swift; sourceTree = "<group>"; };
+		2B0E85B726341AE9003CC340 /* BranchesListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesListCellViewModel.swift; sourceTree = "<group>"; };
+		2B0E85BC26341F90003CC340 /* RepoDetailsVC+GenericBranchListTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoDetailsVC+GenericBranchListTableViewExtension.swift"; sourceTree = "<group>"; };
+		2B0E85C126342063003CC340 /* RepoDetailVC+GenericForksListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoDetailVC+GenericForksListCollectionView.swift"; sourceTree = "<group>"; };
+		2B0E85C626342130003CC340 /* RepoDetailsVC+BindingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoDetailsVC+BindingExtension.swift"; sourceTree = "<group>"; };
+		2B0E85DD26342675003CC340 /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
+		2B0E85DE26342675003CC340 /* BranchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BranchTableViewCell.xib; sourceTree = "<group>"; };
+		2B0E85E8263429B1003CC340 /* GenericCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCollectionViewController.swift; sourceTree = "<group>"; };
+		2B0E85ED26342A8C003CC340 /* GenericCollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenericCollectionView+Extension.swift"; sourceTree = "<group>"; };
+		2B0E85F826342DA1003CC340 /* RepoDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B0E85F926342DA1003CC340 /* RepoDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B6FE25C2632D98D00E3C00F /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		2B6FE2642632DC5B00E3C00F /* RepositoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModel.swift; sourceTree = "<group>"; };
 		2B6FE2852632F6A400E3C00F /* RepositoryDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsModel.swift; sourceTree = "<group>"; };
@@ -158,12 +186,79 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		2B0E85902633D7BC003CC340 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E855326338CD1003CC340 /* RepoDetailViewController.swift */,
+				2B0E85C626342130003CC340 /* RepoDetailsVC+BindingExtension.swift */,
+				2B0E85BC26341F90003CC340 /* RepoDetailsVC+GenericBranchListTableViewExtension.swift */,
+				2B0E85C126342063003CC340 /* RepoDetailVC+GenericForksListCollectionView.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2B0E85B02633DBB1003CC340 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E85A12633D995003CC340 /* ContributorModel.swift */,
+				2B0E85A62633DA00003CC340 /* ForkModel.swift */,
+				2B0E85AB2633DB24003CC340 /* BranchModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2B0E85CB26342597003CC340 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E85902633D7BC003CC340 /* ViewControllers */,
+				2B0E85F226342D1D003CC340 /* CustomCells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B0E85D6263425D0003CC340 /* BranchCell */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E85DD26342675003CC340 /* BranchTableViewCell.swift */,
+				2B0E85DE26342675003CC340 /* BranchTableViewCell.xib */,
+			);
+			path = BranchCell;
+			sourceTree = "<group>";
+		};
+		2B0E85E426342880003CC340 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E85942633D7CF003CC340 /* RepoDetailsViewModel.swift */,
+				2B0E85B726341AE9003CC340 /* BranchesListCellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2B0E85F226342D1D003CC340 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E85F626342D41003CC340 /* CollectionViewCell */,
+				2B0E85D6263425D0003CC340 /* BranchCell */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		2B0E85F626342D41003CC340 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E85F826342DA1003CC340 /* RepoDetailCollectionViewCell.swift */,
+				2B0E85F926342DA1003CC340 /* RepoDetailCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 		2B6FE2A1263321C300E3C00F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				2B6FE2A2263321D700E3C00F /* Date+Extension.swift */,
 				2B6FE2AA2633239F00E3C00F /* String+Extension.swift */,
 				2BABFF8126334ADB0087DF02 /* GenericTableView+Extension.swift */,
+				2B0E85ED26342A8C003CC340 /* GenericCollectionView+Extension.swift */,
 				2B0E853126335D5E003CC340 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
@@ -255,24 +350,24 @@
 		2BA167F02632970E0077AC76 /* ReposList */ = {
 			isa = PBXGroup;
 			children = (
-				2BA167F2263297480077AC76 /* Model */,
-				2BA167F1263297230077AC76 /* ViewModel */,
+				2BA167F2263297480077AC76 /* Models */,
+				2BA167F1263297230077AC76 /* ViewModels */,
 				2BA167EF263296FF0077AC76 /* View */,
 			);
 			path = ReposList;
 			sourceTree = "<group>";
 		};
-		2BA167F1263297230077AC76 /* ViewModel */ = {
+		2BA167F1263297230077AC76 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				2B6FE2642632DC5B00E3C00F /* RepositoryListViewModel.swift */,
 				2B0E852C26335C52003CC340 /* RepoListCellViewModel.swift */,
 				2B0E854E26336235003CC340 /* ViewState.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		2BA167F2263297480077AC76 /* Model */ = {
+		2BA167F2263297480077AC76 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				2B6FE25C2632D98D00E3C00F /* RepositoryModel.swift */,
@@ -280,7 +375,7 @@
 				2B6FE28A2632F7A300E3C00F /* RepositoryOwnerModel.swift */,
 				2B6FE29C26330A5100E3C00F /* RepositoryErrorModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2BA167F32632975A0077AC76 /* Services */ = {
@@ -297,7 +392,9 @@
 		2BA167F4263297630077AC76 /* RepoDetails */ = {
 			isa = PBXGroup;
 			children = (
-				2B0E855326338CD1003CC340 /* RepoDetailViewController.swift */,
+				2B0E85CB26342597003CC340 /* View */,
+				2B0E85E426342880003CC340 /* ViewModels */,
+				2B0E85B02633DBB1003CC340 /* Models */,
 			);
 			path = RepoDetails;
 			sourceTree = "<group>";
@@ -306,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA1680826329B6B0077AC76 /* GenericTableView.swift */,
+				2B0E85E8263429B1003CC340 /* GenericCollectionViewController.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -449,9 +547,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B0E85FB26342DA1003CC340 /* RepoDetailCollectionViewCell.xib in Resources */,
 				2B0E853C26335E5D003CC340 /* RepositoryTableViewCell.xib in Resources */,
 				2BA167BE263294420077AC76 /* LaunchScreen.storyboard in Resources */,
 				2BA167BB263294420077AC76 /* Assets.xcassets in Resources */,
+				2B0E85E026342675003CC340 /* BranchTableViewCell.xib in Resources */,
 				2BA167B9263294400077AC76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,9 +680,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B0E85A22633D995003CC340 /* ContributorModel.swift in Sources */,
 				2B6FE29D26330A5100E3C00F /* RepositoryErrorModel.swift in Sources */,
 				2BA168312632C7D30077AC76 /* WebService.swift in Sources */,
 				2B0E854F26336235003CC340 /* ViewState.swift in Sources */,
+				2B0E85952633D7CF003CC340 /* RepoDetailsViewModel.swift in Sources */,
+				2B0E85AC2633DB24003CC340 /* BranchModel.swift in Sources */,
 				2B0E853B26335E5D003CC340 /* RepositoryTableViewCell.swift in Sources */,
 				2B0E852D26335C52003CC340 /* RepoListCellViewModel.swift in Sources */,
 				2B0E855426338CD1003CC340 /* RepoDetailViewController.swift in Sources */,
@@ -592,19 +695,28 @@
 				2BA1680926329B6B0077AC76 /* GenericTableView.swift in Sources */,
 				2B6FE25D2632D98D00E3C00F /* RepositoryModel.swift in Sources */,
 				2B0E852826335B72003CC340 /* BaseViewController.swift in Sources */,
+				2B0E85DF26342675003CC340 /* BranchTableViewCell.swift in Sources */,
+				2B0E85EE26342A8C003CC340 /* GenericCollectionView+Extension.swift in Sources */,
 				2B6FE28B2632F7A300E3C00F /* RepositoryOwnerModel.swift in Sources */,
 				2B0E8523263356D1003CC340 /* RepoListViewController.swift in Sources */,
 				2B6FE2652632DC5C00E3C00F /* RepositoryListViewModel.swift in Sources */,
+				2B0E85A72633DA00003CC340 /* ForkModel.swift in Sources */,
 				2B0E858326339135003CC340 /* RepoListVC+BindingExtension.swift in Sources */,
 				2BA167B2263294400077AC76 /* AppDelegate.swift in Sources */,
 				2B6FE2A3263321D700E3C00F /* Date+Extension.swift in Sources */,
 				2BA167B4263294400077AC76 /* SceneDelegate.swift in Sources */,
 				2B6FE2AB2633239F00E3C00F /* String+Extension.swift in Sources */,
+				2B0E85C726342130003CC340 /* RepoDetailsVC+BindingExtension.swift in Sources */,
+				2B0E85E9263429B1003CC340 /* GenericCollectionViewController.swift in Sources */,
 				2B0E853226335D5E003CC340 /* UIImageView+Extension.swift in Sources */,
 				2B6FE2862632F6A400E3C00F /* RepositoryDetailsModel.swift in Sources */,
+				2B0E85B826341AE9003CC340 /* BranchesListCellViewModel.swift in Sources */,
+				2B0E85FA26342DA1003CC340 /* RepoDetailCollectionViewCell.swift in Sources */,
 				2B0E855E26338FBC003CC340 /* RepoListVC+GenericTableViewExtension.swift in Sources */,
 				2B0E8570263390AE003CC340 /* RepoListVC+UISearchBarExtension.swift in Sources */,
 				2BABFF8226334ADB0087DF02 /* GenericTableView+Extension.swift in Sources */,
+				2B0E85C226342063003CC340 /* RepoDetailVC+GenericForksListCollectionView.swift in Sources */,
+				2B0E85BD26341F90003CC340 /* RepoDetailsVC+GenericBranchListTableViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,13 +43,13 @@ class RepositoryViewModel {
         state = .loading
         webService.getRequestArray(url: WebRouter.getRepos.url, responseType: RepositoryModel.self) { [weak self] (result, error) in
             guard let self = self else { return }
-            guard let RepoList = result else {
+            guard let repoList = result else {
                 self.state = .error
                 self.errorMessage = error?.localizedDescription
                 return
             }
             self.state = .filled
-            self.getPublicReposOnly(reposList: RepoList)
+            self.getPublicReposOnly(reposList: repoList)
         }
     }
 }

@@ -13,7 +13,6 @@ class RepoDetailViewController: BaseViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var ownerNameLabel: UILabel!
     @IBOutlet weak var creationDateLabel: UILabel!
-    @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var contributorViewContainer: UIView!
     @IBOutlet weak var branchListTableViewController: UIView!
     @IBOutlet weak var forkCollectionViewController: UIView!
@@ -22,6 +21,7 @@ class RepoDetailViewController: BaseViewController {
     //MARK:- Properties
     var repositoryName, ownerName, ownerAvatar, createionDate, contributors, forks, branches: String?
     var genericTableView: GenericTableView<BranchesListCellViewModel, BranchTableViewCell>?
+    var genericCollectionView: GenericCollectionViewController<>?
     lazy var viewModel: RepoDetailsViewModel = {
         return RepoDetailsViewModel()
     }()
