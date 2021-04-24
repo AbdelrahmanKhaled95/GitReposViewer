@@ -11,8 +11,10 @@ class RepositoryViewModel {
     
     //MARK:- Properties
     let webService: WebServiceProtocol
+    private var presistedRepositroyList: [RepositoryModel] = []
     private var allReposList: [RepositoryModel] = []
     private var allReposCreationDate: [String] = []
+    private var repositoryCurrentCounter = 10
     var contributorsURL, forksURL, branchesURL : String?
     var repoListCellViewModels: [RepoListCellViewModel] = [RepoListCellViewModel]() {
         didSet {
@@ -43,16 +45,27 @@ class RepositoryViewModel {
         state = .loading
         webService.getRequestArray(url: WebRouter.getRepos.url, responseType: RepositoryModel.self) { [weak self] (result, error) in
             guard let self = self else { return }
-            guard let repoList = result else {
+            guard let presistedRepositroyList = result else {
                 self.state = .error
                 self.errorMessage = error?.localizedDescription
                 return
             }
             self.state = .filled
-            self.getPublicReposOnly(reposList: repoList)
+            self.presistedRepositroyList = presistedRepositroyList
+            self.fetchPaginatedRepos()
         }
     }
 }
+//MARK:- Pagination
+extension RepositoryViewModel {
+    // According to GitHub documantation (https://docs.github.com/en/rest/reference/repos#list-public-repositories) This endpoint does not support pagination. So I will presist the data into list and each time this function is called i will give only 10 repos to the view to show
+    func fetchPaginatedRepos() {
+        let repoList = presistedRepositroyList.prefix(repositoryCurrentCounter)
+        repositoryCurrentCounter += 10
+        self.getPublicReposOnly(reposList: Array(repoList))
+    }
+}
+
 //MARK:- Repo Filteration
 extension RepositoryViewModel {
     //Step 1: Ensure that each repository is public and not private
