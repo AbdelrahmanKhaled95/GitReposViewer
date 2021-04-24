@@ -9,7 +9,7 @@ import UIKit
 
 //MARK:- Generic CollectionView closures
 extension RepoDetailViewController {
-    func configRepoCollection(item: ForkListCellViewModel, cell: RepoDetailCollectionViewCell) {
+    func configForkCollection(item: ForkListCellViewModel, cell: RepoDetailCollectionViewCell) {
         cell.forkListCellViewModel = item
     }
 }
