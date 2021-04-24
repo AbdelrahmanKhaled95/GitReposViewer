@@ -48,7 +48,7 @@ class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDat
     //MARK:- Prefetching
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for index in indexPaths {
-            if index.row >= items.count - 5 {
+            if index.row >= items.count - 1 {
                 prefetch?()
             }
         }
