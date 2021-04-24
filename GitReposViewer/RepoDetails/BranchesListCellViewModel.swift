@@ -6,3 +6,6 @@
 //
 
 import Foundation
+struct BranchesListCellViewModel {
+    let branchName: String?
+}
