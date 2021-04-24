@@ -8,12 +8,4 @@
 // MARK: - BranchModelElement
 struct BranchModel: Codable {
     let name: String
-    let commit: Commit
-    let protected: Bool
-}
-
-// MARK: - Commit
-struct Commit: Codable {
-    let sha: String
-    let url: String
 }
