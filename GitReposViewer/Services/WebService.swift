@@ -13,8 +13,7 @@ class WebSerice: WebServiceProtocol {
     var session = URLSession.shared
     
     init() {
-        // GitHib Authorization Key
-        let key = "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"
+        let key = "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"
         let sessionConfig = URLSessionConfiguration.default
         let authValue: String? = "Bearer \(key)"
         sessionConfig.httpAdditionalHeaders = ["Authorization": authValue ?? ""]
