@@ -49,6 +49,7 @@
                     <navigationItem key="navigationItem" id="Bkv-QR-r7Z"/>
                     <connections>
                         <outlet property="activitySpinner" destination="O5P-or-1qb" id="try-Ri-bw1"/>
+                        <outlet property="searchBar" destination="nvq-3d-jLh" id="rks-HA-HTM"/>
                         <outlet property="tableViewContainer" destination="rV0-9d-Q3y" id="lV0-XJ-Ni8"/>
                         <segue destination="j0S-Gy-hMH" kind="show" identifier="RepoDetail" id="Gb5-qO-SaN"/>
                     </connections>

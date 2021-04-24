@@ -15,6 +15,7 @@ extension RepoListViewController {
             DispatchQueue.main.async {
                 if let message = self.viewModel.errorMessage {
                     self.showAlert(message)
+                    self.genericTableView?.setEmptyMessage(message)
                 }
             }
         }
@@ -24,21 +25,22 @@ extension RepoListViewController {
                 guard let self = self else { return }
                 switch self.viewModel.state {
                 case .empty, .error:
+                    self.searchBar.isUserInteractionEnabled = false
                     self.activitySpinner.stopAnimating()
                     UIView.animate(withDuration: 0.1, animations: {
-                        
                         self.activitySpinner.isHidden = true
                     })
                 case .loading:
                     self.activitySpinner.startAnimating()
+                    self.searchBar.isUserInteractionEnabled = false
                     UIView.animate(withDuration: 0.1, animations: {
-                        
                         self.activitySpinner.isHidden = false
                     })
                 case .filled:
+                    self.searchBar.isUserInteractionEnabled = true
                     self.activitySpinner.stopAnimating()
                     UIView.animate(withDuration: 0.1, animations: {
-                        
+                        self.genericTableView?.restore()
                         self.activitySpinner.isHidden = true
                     })
                 }

@@ -9,5 +9,11 @@ import XCTest
 @testable import GitReposViewer
 
 class RepoListViewModelTests: XCTestCase {
+    //MARK:- Properties
+    var sut: RepositoryViewModel!
+    var webServiceMock: WebServiceProtocol!
     
+    override func setUp() {
+        sut = RepositoryViewModel(webService: webServiceMock())
+    }
 }

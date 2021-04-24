@@ -14,7 +14,7 @@ class WebSerice: WebServiceProtocol {
     
     init() {
         // GitHib Authorization Key
-        let key = "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"
+        let key = "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"
         let sessionConfig = URLSessionConfiguration.default
         let authValue: String? = "Bearer \(key)"
         sessionConfig.httpAdditionalHeaders = ["Authorization": authValue ?? ""]
@@ -37,10 +37,16 @@ class WebSerice: WebServiceProtocol {
                     completionHandler(result, nil)
                 }
             } catch(let error) {
+                print(error)
+                let gitHubError = try? JSONDecoder().decode(GitHubErrorMessage.self, from: data)
                 DispatchQueue.main.async {
-                    print(error)
-                    completionHandler(nil, error)
+                    if let gitHubError = gitHubError {
+                        completionHandler(nil, gitHubError)
+                    } else {
+                        completionHandler(nil, error)
+                    }
                 }
+                return
             }
         }
         task.resume()
@@ -60,10 +66,15 @@ class WebSerice: WebServiceProtocol {
                     completionHandler(result, nil)
                 }
             } catch(let error) {
+                let gitHubError = try? JSONDecoder().decode(GitHubErrorMessage.self, from: data)
                 DispatchQueue.main.async {
-                    print(error)
-                    completionHandler(nil, error)
+                    if let gitHubError = gitHubError {
+                        completionHandler(nil, gitHubError)
+                    } else {
+                        completionHandler(nil, error)
+                    }
                 }
+                return
             }
         }
         task.resume()
