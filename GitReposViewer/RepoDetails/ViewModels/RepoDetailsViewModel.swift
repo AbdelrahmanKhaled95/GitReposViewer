@@ -10,6 +10,8 @@ import Foundation
 class RepoDetailsViewModel {
     //MARK:- Properties
     let webService: WebServiceProtocol
+    // To be used for pagination
+    var branchListCurrentPage = 1
     var branchListCellViewModel: [BranchesListCellViewModel] = [BranchesListCellViewModel]() {
         didSet {
             self.reloadTableView?()
@@ -28,7 +30,6 @@ class RepoDetailsViewModel {
         }
     }
 
-    
     init(webService: WebServiceProtocol = WebSerice()) {
         self.webService = webService
     }
@@ -51,7 +52,7 @@ class RepoDetailsViewModel {
     
     func fetchRepoBranches(ownerName: String, repositoryName: String) {
         state = .loading
-        webService.getRequestArray(url: WebRouter.getBranches(ownerName, repositoryName).url, responseType: BranchModel.self) { [weak self] (result, error) in
+        webService.getRequestArray(url: WebRouter.getBranches(ownerName, repositoryName, branchListCurrentPage).url, responseType: BranchModel.self) { [weak self] (result, error) in
             guard let self = self else { return }
             guard let branchList = result else {
                 self.state = .error
@@ -59,6 +60,7 @@ class RepoDetailsViewModel {
                 return
             }
             self.state = .filled
+            self.branchListCurrentPage += 1
             self.generateBranchListCellVM(branchList: branchList)
         }
     }
@@ -99,7 +101,7 @@ class RepoDetailsViewModel {
         branchList.forEach { (branch) in
             branchListCellVM.append(BranchesListCellViewModel(branchName: branch.name))
         }
-        self.branchListCellViewModel = branchListCellVM
+        self.branchListCellViewModel.append(contentsOf: branchListCellVM)
     }
     
     // Process Fork List
