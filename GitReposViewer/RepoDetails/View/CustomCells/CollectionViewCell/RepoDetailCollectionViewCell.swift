@@ -18,11 +18,17 @@ class RepoDetailCollectionViewCell: UICollectionViewCell {
         avatarImageView.image = nil
     }
     
-    var repoDetailsCollectionCellViewModel : RepoDetailsCollectionCellViewModel? {
+    var forkListCellViewModel : ForkListCellViewModel? {
         didSet {
-            ownerNameLabel.text = repoDetailsCollectionCellViewModel?.ownerName
-            avatarImageView?.loadImage(from: repoDetailsCollectionCellViewModel?.avatarImage)
+            ownerNameLabel.text = forkListCellViewModel?.ownerName
+            avatarImageView?.loadImage(from: forkListCellViewModel?.avatarImage)
         }
     }
     
+    var contributorListCellViewModel : ContributorListCellViewModel? {
+        didSet {
+            ownerNameLabel.text = contributorListCellViewModel?.ownerName
+            avatarImageView?.loadImage(from: contributorListCellViewModel?.avatarImage)
+        }
+    }
 }
