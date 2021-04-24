@@ -13,6 +13,7 @@ class WebSerice: WebServiceProtocol {
     var session = URLSession.shared
     
     init() {
+        //Divide GitHub token key to avoid being Revoked when pushed on github servers
         let keyPart1 = "ghp"
         let keyPart2 = "_dPkbRJ4VhCH"
         let sessionConfig = URLSessionConfiguration.default

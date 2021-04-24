@@ -24,32 +24,44 @@ class RepoListViewModelTests: XCTestCase {
     }
 
     func test_fetch_repos() {
-
         let promise = XCTestExpectation(description: "Fetch repository list")
         var responseError: Error?
         var responseModel: [RepositoryModel]?
 
-        // When
         guard let bundle = Bundle.unitTest.path(forResource: "RepositoryStub", ofType: "json") else {
             XCTFail("Error: content not found")
             return
         }
         
         sut.getRequestArray(url: URL(fileURLWithPath: bundle), responseType: RepositoryModel.self) { (reposList, error) in
-            <#code#>
-        }
-        
-        
-        
-        initalFetchGitHubRepositories( fetchPhotos(from: URL(fileURLWithPath: bundle), complete: { (photos, error) in
             responseError = error
-            responsePhotos = photos
+            responseModel = reposList
             promise.fulfill()
-        })
+        }
         wait(for: [promise], timeout: 1)
 
-        // Then
         XCTAssertNil(responseError)
-        XCTAssertNotNil(responsePhotos)
+        XCTAssertNotNil(responseModel)
+    }
+    
+    func test_fetch_repoDetail() {
+        let promise = XCTestExpectation(description: "Fetch repository detail")
+        var responseError: Error?
+        var responseModel: RepositoryDetailsModel?
+
+        guard let bundle = Bundle.unitTest.path(forResource: "RepositryDetailStub", ofType: "json") else {
+            XCTFail("Error: content not found")
+            return
+        }
+        sut.getRequest(url: URL(fileURLWithPath: bundle), responseType: RepositoryDetailsModel.self) { (repo, error) in
+            responseError = error
+            responseModel = repo
+            promise.fulfill()
+        }
+        
+        wait(for: [promise], timeout: 1)
+
+        XCTAssertNil(responseError)
+        XCTAssertNotNil(responseModel)
     }
 }
