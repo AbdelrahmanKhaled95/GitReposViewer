@@ -199,7 +199,10 @@
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>
                         <outlet property="avatarImageView" destination="gIm-b7-UWq" id="fIo-iB-Pno"/>
+                        <outlet property="branchListTableViewController" destination="xpE-Tx-mJj" id="jim-hm-fCv"/>
+                        <outlet property="contributorViewContainer" destination="Pyo-Ci-bES" id="hk4-gg-OPQ"/>
                         <outlet property="creationDateLabel" destination="IHE-xD-Jy6" id="Ktv-SN-goC"/>
+                        <outlet property="forkCollectionViewController" destination="3vJ-uZ-y46" id="42E-yQ-9CS"/>
                         <outlet property="languageLabel" destination="ulf-P2-eR8" id="T80-jm-unp"/>
                         <outlet property="ownerNameLabel" destination="kfh-OG-MJ6" id="ACi-OW-MYX"/>
                     </connections>
