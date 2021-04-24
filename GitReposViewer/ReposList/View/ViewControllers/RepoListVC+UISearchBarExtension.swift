@@ -11,6 +11,7 @@ import UIKit
 extension RepoListViewController: UISearchBarDelegate {
     // Called when clicked on search key in keyboard
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard searchBar.text != "" else { return }
         if let searchValue = searchBar.text {
             viewModel.serachForRepo(searchValue: searchValue)
         }
