@@ -7,21 +7,23 @@
 
 import UIKit
 
-class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDataSource, UITableViewDelegate {
-    
+class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
     //MARK:- Properties
     var items: [Item]
     var config: (Item, Cell) -> Void
-    var selectHandler: (Item, Int) -> Void
+    var selectHandler: ((Item, Int) -> Void)?
+    var prefetch: (() -> Void)?
     //MARK:- Initializer
-    init(frame: CGRect, items: [Item], config: @escaping (Item, Cell) -> Void, selectHandler: @escaping (Item, Int) -> Void) {
+    init(frame: CGRect, items: [Item], config: @escaping (Item, Cell) -> Void, selectHandler: ((Item, Int) -> Void)?, prefetch: (() -> Void)?) {
         self.items = items
         self.config = config
         self.selectHandler = selectHandler
+        self.prefetch = prefetch
         super.init(frame: frame, style: .plain)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.dataSource = self
         self.delegate = self
+        self.prefetchDataSource = self
         self.registerNib()
         self.tableFooterView = UIView()
     }
@@ -40,7 +42,16 @@ class GenericTableView<Item, Cell: UITableViewCell>: UITableView, UITableViewDat
     }
     //MARK:- Delegation
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectHandler(items[indexPath.row], indexPath.row)
+        selectHandler?(items[indexPath.row], indexPath.row)
+    }
+    
+    //MARK:- Prefetching
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for index in indexPaths {
+            if index.row >= items.count - 5 {
+                prefetch?()
+            }
+        }
     }
 }
 //MARK:- Reload Table
