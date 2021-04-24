@@ -12,6 +12,10 @@ extension RepoDetailViewController {
     func configRepoTable(item: BranchesListCellViewModel, cell: BranchTableViewCell) {
         cell.branchNameLabel.text = item.branchName
     }
-    func selectHelper(item: BranchesListCellViewModel, index: Int) {
+    
+    func prefetchBranch() {
+        guard let ownerName = ownerName, let repositoryName = repositoryName else { return }
+        viewModel.fetchRepoBranches(ownerName: ownerName, repositoryName: repositoryName)
+        
     }
 }
