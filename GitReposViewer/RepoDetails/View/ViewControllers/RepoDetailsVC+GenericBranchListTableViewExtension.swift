@@ -9,8 +9,8 @@ import UIKit
 
 //MARK:- Generic TableView closures
 extension RepoDetailViewController {
-    func configRepoTable(item: BranchesListCellViewModel, cell: UITableViewCell) {
-        cell.textLabel?.text = item.branchName
+    func configRepoTable(item: BranchesListCellViewModel, cell: BranchTableViewCell) {
+        cell.branchNameLabel.text = item.branchName
     }
     func selectHelper(item: BranchesListCellViewModel, index: Int) {
     }
