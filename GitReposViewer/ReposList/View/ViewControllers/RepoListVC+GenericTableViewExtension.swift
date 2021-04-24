@@ -13,6 +13,8 @@ extension RepoListViewController {
         cell.repoListCellViewModel = item
     }
     func selectHelper(item: RepoListCellViewModel, index: Int) {
+        self.viewModel.selectedRepo(index: index)
+        self.selectedRepository = item
         performSegue(withIdentifier: "RepoDetail", sender: nil)
     }
 }
