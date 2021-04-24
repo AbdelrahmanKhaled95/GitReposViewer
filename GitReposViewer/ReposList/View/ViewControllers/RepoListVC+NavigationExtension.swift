@@ -16,6 +16,9 @@ extension RepoListViewController {
             repositoryDetailsVC.repositoryName = repository.repositoryName
             repositoryDetailsVC.ownerName = repository.ownerName
             repositoryDetailsVC.createionDate = repository.creationDate
+            repositoryDetailsVC.branches = viewModel.branchesURL
+            repositoryDetailsVC.contributors = viewModel.contributorsURL
+            repositoryDetailsVC.forks = viewModel.forksURL
         }
     }
 }
